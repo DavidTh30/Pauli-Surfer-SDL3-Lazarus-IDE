@@ -1,0 +1,37 @@
+05:00:16.295  PAULI SURFER 2 - EFFECT EDITOR --ui-test
+05:00:16.633  ok    panels groups / params / scene
+05:00:16.633  ok    BLACK HOLE group: 17 sliders (17)
+05:00:16.633  ok    scene: black hole, probe, photon
+05:00:16.633  click slider.lens_strength
+05:00:16.704  png tests/ed_shots\21_fx_editor.png
+05:00:16.733  ok    lens strength slider centre = 3.0 (3.00)
+05:00:16.733  ok    one value not saved
+05:00:16.733  click reset.lens_strength
+05:00:16.783  ok    RESET -> default 2.4
+05:00:16.783  click slider.disc_count
+05:00:16.833  ok    disc particles centre = 150 (150), integer
+05:00:16.833  ok    integer value stays integer
+05:00:16.833  click flash_horizon
+05:00:16.900  ok    HORIZON fires the flash (0.93)
+05:00:16.900  click group.colours
+05:00:16.970  png tests/ed_shots\22_horizon_flash.png
+05:00:17.300  ok    COLOURS: 13 colour rows (13)
+05:00:17.300  click slider.col_ccw.g
+05:00:17.350  ok    G slider centre: CCW green 128 -> #FF801A
+05:00:17.350  ok    hex field follows the slider: #FF801A
+05:00:17.350  click save
+05:00:17.352  status: saved F:\Claude\Lazarus\UI08\Pauli Surfer V2 SDL3\app\tests\ed_data\pauli_fx.ini  (a running game reloads it)
+05:00:17.422  png tests/ed_shots\23_colours.png
+05:00:17.450  ok    SAVE writes F:\Claude\Lazarus\UI08\Pauli Surfer V2 SDL3\app\tests\ed_data\pauli_fx.ini
+05:00:17.450  ok    the file loads back (colour + disc count)
+05:00:17.450  click defaults
+05:00:17.452  status: all effects back to the defaults
+05:00:17.500  ok    DEFAULTS: every value = default (2 not saved)
+05:00:17.500  click group.flashes
+05:00:17.583  click node_tint
+05:00:17.666  ok    IN NODE tint on
+05:00:17.666  click popup
+05:00:17.861  png tests/ed_shots\24_flashes.png
+05:00:18.050  ok    small window 1000 x 640: everything inside
+05:00:18.093  png tests/ed_shots\25_small_window.png
+05:00:18.136  done: 17 checks, 0 failure(s)

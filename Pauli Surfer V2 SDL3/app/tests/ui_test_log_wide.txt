@@ -1,0 +1,81 @@
+22:19:16.610  PauliSurfer --ui-test  progress F:\Claude\Lazarus\UI08\Pauli Surfer V2 SDL3\app\tests\ui_progress.ini
+22:19:16.864  ok    title screen, attract mode plays 6p with 3 black holes, mode BLACK HOLE
+22:19:16.864  ok    22 sound effects rendered by the SFX engine
+22:19:18.748  ok    attract bot is playing (2.1 s, 1 quanta)
+22:19:18.870  shot 01_title
+22:19:18.953  click help
+22:19:19.059  ok    how to play
+22:19:19.176  shot 02_help
+22:19:19.259  click back
+22:19:19.366  click levels
+22:19:19.467  ok    level select, only level 1 unlocked
+22:19:19.543  click lvl3
+22:19:19.642  ok    locked level 3 does nothing
+22:19:19.720  click lvl1
+22:19:20.164  ok    briefing level 1 (2p)
+22:19:20.269  shot 03_briefing
+22:19:20.448  click start
+22:19:20.553  ok    level 1 started in BLACK HOLE mode with 1 black hole
+22:19:20.642  bot takes over level 1
+22:19:30.740  ok    bot won level 1: score 3300, 3 stars, 10.3 s
+22:19:30.740  ok    sound effects played during the level: 11 (pickups 10)
+22:19:30.740  info  596 frames in 10.1 s = 59 fps (300k particles, render scale 0.75, 1728x934)
+22:19:30.924  shot 05_result
+22:19:30.925  ok    progress per mode: BLACK HOLE level 2 unlocked, best + stars saved, SINGULARITY still locked
+22:19:31.016  click next
+22:19:31.430  ok    NEXT -> level 2 (3p, one radial node)
+22:19:31.506  click start
+22:19:31.583  click flip
+22:19:31.667  ok    FLIP SPIN button flips sigma
+22:19:32.250  ok    keyboard thrust moves the probe (0.34 RView/s)
+22:19:32.317  click view
+22:19:32.400  ok    VIEW -> half cloud
+22:19:32.535  shot 06_view_half
+22:19:32.584  click view
+22:19:32.667  click view
+22:19:32.750  ok    VIEW cycles back to slice
+22:19:32.817  click pause
+22:19:33.294  ok    pause freezes the game
+22:19:33.401  shot 07_paused
+22:19:33.476  click resume
+22:19:33.550  ok    resume
+22:19:34.134  ok    probe on the radial node loses coherence (0.85)
+22:19:34.200  click pause
+22:19:34.296  click menu
+22:19:34.812  ok    MENU -> title (attract)
+22:19:34.893  click mode-singularity
+22:19:34.997  ok    mode SINGULARITY selected
+22:19:35.080  click levels
+22:19:35.178  ok    SINGULARITY has its own progress (level 1 only)
+22:19:35.293  shot 08_levels_singularity
+22:19:35.374  click lvl1
+22:19:35.794  ok    briefing: SINGULARITY level 1 has 2 black holes
+22:19:35.893  shot 09_briefing_singularity
+22:19:35.972  click start
+22:19:36.101  ok    probe dropped on a horizon: -50 % coherence (0.50), Hawking ejection, immune
+22:19:36.101  ok    horizon sound played
+22:19:36.201  shot 10_hawking_ejection
+22:19:36.526  ok    second horizon with 30 % coherence -> SPAGHETTIFIED, result screen
+22:19:36.717  shot 11_spaghettified
+22:19:36.809  click menu
+22:19:37.284  click mode-blackhole
+22:19:37.388  ok    back to BLACK HOLE mode
+22:19:37.469  ok    layout WIDE for 1728 x 934
+22:19:37.637  ok    + zooms the cloud: 1.166
+22:19:37.813  ok    - zooms back: 1.000
+22:19:37.986  ok    ] HUD size +0.1 -> 0.6
+22:19:38.072  ok    [ HUD size back (0.5, compact default 0.5 in wide windows)
+22:19:38.240  ok    key H -> how to play
+22:19:38.322  ok    Esc -> title
+22:19:38.405  ok    key 2 on the title -> BLACK HOLE
+22:19:38.480  ok    key L -> levels
+22:19:38.893  ok    key 1 -> briefing level 1
+22:19:38.988  shot 17_briefing_keys
+22:19:39.066  ok    Enter -> start
+22:19:39.698  shot 18_play_keys
+22:19:39.767  ok    key P -> pause
+22:19:39.863  shot 19_paused_keys
+22:19:40.028  ok    key R -> restart (briefing)
+22:19:40.154  ok    Esc -> pause
+22:19:40.677  ok    key Q -> menu
+22:19:40.757  done: 0 failure(s)

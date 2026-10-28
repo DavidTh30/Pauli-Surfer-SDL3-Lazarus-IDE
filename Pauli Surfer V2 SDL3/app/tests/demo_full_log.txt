@@ -1,0 +1,9 @@
+00:00:27  SUPER BOT DEMO start, mode SINGULARITY
+00:00:48  level 1 2p WON   attempt 1  score 3485  18.7 s  flips 0  horizon 0  eaten 0
+00:01:13  level 2 3p WON   attempt 1  score 5285  19.5 s  flips 5  horizon 0  eaten 0
+00:01:40  level 3 3d WON   attempt 1  score 5880  22.3 s  flips 0  horizon 0  eaten 0
+00:02:06  level 4 4f WON   attempt 1  score 5900  20.2 s  flips 0  horizon 0  eaten 2
+00:02:44  level 5 5s WON   attempt 1  score 6245  31.8 s  flips 8  horizon 2  eaten 2
+00:04:24  level 6 6p LOST  attempt 1  score 3075  95.0 s  flips 14  horizon 1  eaten 4
+00:05:20  level 6 6p WON   attempt 2  score 6677  50.1 s  flips 13  horizon 2  eaten 6
+00:05:23  DONE  total score 33472  total time 257.6 s

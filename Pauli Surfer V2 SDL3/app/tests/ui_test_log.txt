@@ -1,0 +1,115 @@
+05:00:19.049  PauliSurfer --ui-test  progress F:\Claude\Lazarus\UI08\Pauli Surfer V2 SDL3\app\tests\ui_prog.ini
+05:00:19.267  ok    title screen, attract mode plays 6p with 3 black holes, mode BLACK HOLE
+05:00:19.267  ok    22 sound effects rendered by the SFX engine
+05:00:20.850  ok    attract bot is playing (1.8 s, 1 quanta)
+05:00:20.916  click help
+05:00:20.999  ok    how to play
+05:00:21.067  click back
+05:00:21.150  click levels
+05:00:21.233  ok    level select, only level 1 unlocked
+05:00:21.299  click lvl3
+05:00:21.383  ok    locked level 3 does nothing
+05:00:21.450  click lvl1
+05:00:21.883  ok    briefing level 1 (2p)
+05:00:21.950  click start
+05:00:22.034  ok    level 1 started in BLACK HOLE mode with 1 black hole
+05:00:22.100  bot takes over level 1
+05:00:32.200  ok    bot won level 1: score 3300, 3 stars, 10.2 s
+05:00:32.200  ok    sound effects played during the level: 11 (pickups 10)
+05:00:32.200  info  605 frames in 10.1 s = 60 fps (300k particles, render scale 0.75, 1728x934)
+05:00:32.267  ok    progress per mode: BLACK HOLE level 2 unlocked, best + stars saved, SINGULARITY still locked
+05:00:32.333  click next
+05:00:32.750  ok    NEXT -> level 2 (3p, one radial node)
+05:00:32.817  click start
+05:00:32.900  click flip
+05:00:32.984  ok    FLIP SPIN button flips sigma
+05:00:33.567  ok    keyboard thrust moves the probe (0.34 RView/s)
+05:00:33.634  click view
+05:00:33.717  ok    VIEW -> half cloud
+05:00:33.783  click view
+05:00:33.866  click view
+05:00:33.950  ok    VIEW cycles back to slice
+05:00:34.020  click pause
+05:00:34.450  ok    pause freezes the game
+05:00:34.517  click resume
+05:00:34.600  ok    resume
+05:00:35.183  ok    probe on the radial node loses coherence (0.85)
+05:00:35.250  click pause
+05:00:35.334  click menu
+05:00:35.801  ok    MENU -> title (attract)
+05:00:35.867  click mode-singularity
+05:00:35.950  ok    mode SINGULARITY selected
+05:00:36.020  click levels
+05:00:36.100  ok    SINGULARITY has its own progress (level 1 only)
+05:00:36.167  click lvl1
+05:00:36.567  ok    briefing: SINGULARITY level 1 has 2 black holes
+05:00:36.633  click start
+05:00:36.767  ok    probe dropped on a horizon: -50 % coherence (0.50), Hawking ejection, immune
+05:00:36.767  ok    horizon sound played
+05:00:37.034  ok    second horizon with 30 % coherence -> SPAGHETTIFIED, result screen
+05:00:37.167  click menu
+05:00:37.633  click mode-blackhole
+05:00:37.717  ok    back to BLACK HOLE mode
+05:00:37.784  ok    corner layout at 1728 x 934: buttons bottom-right (1714, 879)
+05:00:37.917  ok    + zooms the cloud: 1.166
+05:00:38.050  ok    - zooms back: 1.000
+05:00:38.183  ok    ] HUD size +0.1 -> 0.7
+05:00:38.250  ok    [ HUD size back to default 0.575, inset 163 px (= 157.5 units)
+05:00:38.384  ok    key H -> how to play
+05:00:38.450  ok    Esc -> title
+05:00:38.517  ok    key 2 on the title -> BLACK HOLE
+05:00:38.583  ok    key L -> levels
+05:00:38.933  ok    key 1 -> briefing level 1
+05:00:39.000  ok    Enter -> start
+05:00:39.584  ok    key P -> pause
+05:00:39.733  ok    key R -> restart (briefing)
+05:00:39.866  ok    Esc -> pause
+05:00:40.317  ok    key Q -> menu
+05:00:41.400  ok    playing (for the layer checks)
+05:00:41.600  ok    F2 opens the developer window, 24 named layers
+05:00:41.600  ok    all HUD / world parts have names
+05:00:41.600  ok    legend flush with the right edge: right 1714 = inset right 1714
+05:00:41.600  ok    cloud centred vertically: top 19, bottom 915, centre 467 (window 934)
+05:00:41.666  click dev dev-outlines
+05:00:41.834  ok    OUTLINES button -> dashed layer outlines on
+05:00:41.966  click dev dev-export
+05:00:42.050  ok    EXPORT LAYOUT -> exports/layout.json + layout.md
+05:00:42.050  click dev dev-outlines
+05:00:42.133  ok    hud.coherence w = 140.0 px (max 140)
+05:00:42.200  ok    hud.blackholes w = 140.0 px (max 140)
+05:00:42.268  click dev dev-tab-layers
+05:00:42.416  right click dev row hud.coherence
+05:00:42.550  ok    right click -> popup menu for hud.coherence
+05:00:42.683  click dev pop-copyrow
+05:00:42.766  ok    Copy row -> clipboard: hud.coherence  hud  x=14.3 y=201.7 w=140.0 h=20.3 px  (x 0.8% y 21.6% w 8.1% h 2.2%)  window 1728x934
+05:00:42.833  click dev dev-tab-physics
+05:00:42.983  ok    PHYSICS tab: quantum state, geometry, sampling + 3 plots
+05:00:43.117  click dev dev-tab-parameters
+05:00:43.267  click dev slider901
+05:00:43.417  ok    PARAMETERS tab: FlowScale slider 0.50 -> 0.80, used by the game at once (probe omega 0.489)
+05:00:43.550  click dev dev-reset
+05:00:43.700  ok    RESET DEFAULTS -> FlowScale 0.50
+05:00:43.767  click dev dev-tab-state
+05:00:43.850  ok    STATE tab
+05:00:43.916  click dev dev-tab-layers
+05:00:44.000  ok    LAYERS tab
+05:00:44.217  ok    outlines off, F2 closes the developer window
+05:00:44.834  ok    back to the title
+05:00:44.900  click demo
+05:00:45.299  ok    SUPER BOT DEMO button -> SINGULARITY level 1 briefing
+05:00:47.187  ok    briefing advances by itself (ENTER) after 1.6 s
+05:00:51.317  ok    the bot plays through the input path: 37 inputs, 5 mouse presses, 25 key changes
+05:01:03.933  ok    level 1 finished: won, score 3230
+05:01:07.384  ok    result advances by itself to level 2 (no player input)
+05:01:08.350  ok    Esc stops the demo, the player mode is restored
+05:01:08.350  ok    demo results do not change the player progress
+05:01:08.416  click levels
+05:01:08.499  ok    level select opens on world 1 of 5 (30 levels)
+05:01:08.633  ok    Right -> world 2 MIRROR CURRENTS, level 7 shown
+05:01:08.700  click lvl7
+05:01:08.866  ok    level 7 is locked until level 6 is won
+05:01:08.866  click world4
+05:01:09.016  ok    WORLD 4 tab -> RYDBERG
+05:01:09.083  ok    Left -> world 3
+05:01:09.216  ok    Esc -> title
+05:01:09.283  done: 0 failure(s)

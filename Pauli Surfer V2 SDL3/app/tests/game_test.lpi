@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <ProjectOptions>
+    <Version Value="12"/>
+    <General>
+      <Flags>
+        <MainUnitHasCreateFormStatements Value="False"/>
+        <MainUnitHasTitleStatement Value="False"/>
+        <MainUnitHasScaledStatement Value="False"/>
+      </Flags>
+      <SessionStorage Value="InProjectDir"/>
+      <Title Value="game_test"/>
+    </General>
+    <BuildModes>
+      <Item Name="Default" Default="True"/>
+    </BuildModes>
+    <RequiredPackages>
+      <Item>
+        <PackageName Value="SDL3_package"/>
+      </Item>
+    </RequiredPackages>
+    <Units>
+      <Unit><Filename Value="game_test.lpr"/><IsPartOfProject Value="True"/></Unit>
+    </Units>
+  </ProjectOptions>
+  <CompilerOptions>
+    <Version Value="11"/>
+    <Target>
+      <Filename Value="game_test"/>
+    </Target>
+    <SearchPaths>
+      <OtherUnitFiles Value="..;..\..\..\Hydrogen Orbitals with Probability Flow\sdl3_app;..\..\..\SFX Studio SDL3\app"/>
+      <UnitOutputDirectory Value="lib\$(TargetCPU)-$(TargetOS)"/>
+    </SearchPaths>
+    <CodeGeneration>
+      <Optimizations>
+        <OptimizationLevel Value="2"/>
+      </Optimizations>
+    </CodeGeneration>
+  </CompilerOptions>
+</CONFIG>

@@ -1,0 +1,134 @@
+00:32:53.518  PauliSurfer --ui-test  progress F:\Claude\Lazarus\UI08\Pauli Surfer V2 SDL3\app\tests\ui_progress.ini
+00:32:53.765  ok    title screen, attract mode plays 6p with 3 black holes, mode BLACK HOLE
+00:32:53.765  ok    22 sound effects rendered by the SFX engine
+00:32:55.348  ok    attract bot is playing (1.8 s, 1 quanta)
+00:32:55.485  shot 01_title
+00:32:55.532  click help
+00:32:55.616  ok    how to play
+00:32:55.743  shot 02_help
+00:32:55.799  click back
+00:32:55.882  click levels
+00:32:55.965  ok    level select, only level 1 unlocked
+00:32:56.032  click lvl3
+00:32:56.115  ok    locked level 3 does nothing
+00:32:56.182  click lvl1
+00:32:56.616  ok    briefing level 1 (2p)
+00:32:56.727  shot 03_briefing
+00:32:56.782  click start
+00:32:56.866  ok    level 1 started in BLACK HOLE mode with 1 black hole
+00:32:56.934  bot takes over level 1
+00:33:06.953  ok    bot won level 1: score 3300, 3 stars, 10.2 s
+00:33:06.953  ok    sound effects played during the level: 11 (pickups 10)
+00:33:06.953  info  600 frames in 10.0 s = 60 fps (300k particles, render scale 0.75, 1728x934)
+00:33:07.127  shot 05_result
+00:33:07.128  ok    progress per mode: BLACK HOLE level 2 unlocked, best + stars saved, SINGULARITY still locked
+00:33:07.183  click next
+00:33:07.616  ok    NEXT -> level 2 (3p, one radial node)
+00:33:07.682  click start
+00:33:07.769  click flip
+00:33:07.848  ok    FLIP SPIN button flips sigma
+00:33:08.432  ok    keyboard thrust moves the probe (0.34 RView/s)
+00:33:08.498  click view
+00:33:08.582  ok    VIEW -> half cloud
+00:33:08.731  shot 06_view_half
+00:33:08.782  click view
+00:33:08.865  click view
+00:33:08.948  ok    VIEW cycles back to slice
+00:33:09.015  click pause
+00:33:09.449  ok    pause freezes the game
+00:33:09.572  shot 07_paused
+00:33:09.632  click resume
+00:33:09.716  ok    resume
+00:33:10.299  ok    probe on the radial node loses coherence (0.85)
+00:33:10.369  click pause
+00:33:10.448  click menu
+00:33:10.982  ok    MENU -> title (attract)
+00:33:11.048  click mode-singularity
+00:33:11.132  ok    mode SINGULARITY selected
+00:33:11.199  click levels
+00:33:11.282  ok    SINGULARITY has its own progress (level 1 only)
+00:33:11.407  shot 08_levels_singularity
+00:33:11.465  click lvl1
+00:33:11.848  ok    briefing: SINGULARITY level 1 has 2 black holes
+00:33:11.955  shot 09_briefing_singularity
+00:33:11.998  click start
+00:33:12.132  ok    probe dropped on a horizon: -50 % coherence (0.50), Hawking ejection, immune
+00:33:12.132  ok    horizon sound played
+00:33:12.242  shot 10_hawking_ejection
+00:33:12.498  ok    second horizon with 30 % coherence -> SPAGHETTIFIED, result screen
+00:33:12.683  shot 11_spaghettified
+00:33:12.732  click menu
+00:33:13.182  click mode-blackhole
+00:33:13.265  ok    back to BLACK HOLE mode
+00:33:13.332  ok    corner layout at 1728 x 934: buttons bottom-right (1714, 879)
+00:33:13.467  ok    + zooms the cloud: 1.166
+00:33:13.598  ok    - zooms back: 1.000
+00:33:13.734  ok    ] HUD size +0.1 -> 0.7
+00:33:13.799  ok    [ HUD size back to default 0.575, inset 163 px (= 157.5 units)
+00:33:13.932  ok    key H -> how to play
+00:33:13.998  ok    Esc -> title
+00:33:14.065  ok    key 2 on the title -> BLACK HOLE
+00:33:14.132  ok    key L -> levels
+00:33:14.532  ok    key 1 -> briefing level 1
+00:33:14.640  shot 17_briefing_keys
+00:33:14.699  ok    Enter -> start
+00:33:15.339  shot 18_play_keys
+00:33:15.398  ok    key P -> pause
+00:33:15.513  shot 19_paused_keys
+00:33:15.632  ok    key R -> restart (briefing)
+00:33:15.767  ok    Esc -> pause
+00:33:16.249  ok    key Q -> menu
+00:33:17.349  ok    playing (for the layer checks)
+00:33:17.548  ok    F2 opens the developer window, 24 named layers
+00:33:17.548  ok    all HUD / world parts have names
+00:33:17.548  ok    legend flush with the right edge: right 1714 = inset right 1714
+00:33:17.548  ok    cloud centred vertically: top 19, bottom 915, centre 467 (window 934)
+00:33:17.616  click dev dev-outlines
+00:33:17.782  ok    OUTLINES button -> dashed layer outlines on
+00:33:17.908  shot 27_layer_outlines
+00:33:18.031  ok    developer window PNG
+00:33:18.031  click dev dev-export
+00:33:18.115  ok    EXPORT LAYOUT -> exports/layout.json + layout.md
+00:33:18.115  click dev dev-outlines
+00:33:18.198  ok    hud.coherence w = 140.0 px (max 140)
+00:33:18.265  ok    hud.blackholes w = 140.0 px (max 140)
+00:33:18.332  click dev dev-tab-layers
+00:33:18.482  right click dev row hud.coherence
+00:33:18.615  ok    right click -> popup menu for hud.coherence
+00:33:18.749  click dev pop-copyrow
+00:33:18.832  ok    Copy row -> clipboard: hud.coherence  hud  x=14.3 y=201.7 w=140.0 h=20.3 px  (x 0.8% y 21.6% w 8.1% h 2.2%)  window 1728x934
+00:33:18.898  click dev dev-tab-physics
+00:33:19.048  ok    PHYSICS tab: quantum state, geometry, sampling + 3 plots
+00:33:19.182  ok    PHYSICS tab PNG
+00:33:19.182  click dev dev-tab-parameters
+00:33:19.332  click dev slider901
+00:33:19.482  ok    PARAMETERS tab: FlowScale slider 0.50 -> 0.80, used by the game at once (probe omega 0.489)
+00:33:19.615  click dev dev-reset
+00:33:19.765  ok    RESET DEFAULTS -> FlowScale 0.50
+00:33:19.833  click dev dev-tab-state
+00:33:19.932  ok    STATE tab
+00:33:19.998  click dev dev-tab-layers
+00:33:20.082  ok    LAYERS tab
+00:33:20.282  ok    outlines off, F2 closes the developer window
+00:33:20.848  ok    back to the title
+00:33:20.915  click demo
+00:33:21.349  ok    SUPER BOT DEMO button -> SINGULARITY level 1 briefing
+00:33:23.247  ok    briefing advances by itself (ENTER) after 1.6 s
+00:33:27.398  ok    the bot plays through the input path: 44 inputs, 5 mouse presses, 32 key changes
+00:33:27.528  shot 36_demo_play
+00:33:40.065  ok    level 1 finished: won, score 3230
+00:33:40.699  shot 37_demo_result
+00:33:43.617  ok    result advances by itself to level 2 (no player input)
+00:33:44.582  ok    Esc stops the demo, the player mode is restored
+00:33:44.582  ok    demo results do not change the player progress
+00:33:44.648  click levels
+00:33:44.732  ok    level select opens on world 1 of 5 (30 levels)
+00:33:44.865  ok    Right -> world 2 MIRROR CURRENTS, level 7 shown
+00:33:44.932  click lvl7
+00:33:45.098  ok    level 7 is locked until level 6 is won
+00:33:45.098  click world4
+00:33:45.249  ok    WORLD 4 tab -> RYDBERG
+00:33:45.391  shot 38_levels_world4
+00:33:45.449  ok    Left -> world 3
+00:33:45.584  ok    Esc -> title
+00:33:45.653  done: 0 failure(s)

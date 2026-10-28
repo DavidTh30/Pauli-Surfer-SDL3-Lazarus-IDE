@@ -1,0 +1,600 @@
+== field ==
+  ok   FieldAt = particle omega (rel. err < 1e-3) for 40000 particles, 2 outside (single-precision positions next to nodes)
+  ok   6p has 4 radial nodes (4)
+  ok   spin up / down orbitals share the particle positions
+  ok   current changes direction across 4 of 4 nodes (spin up)
+  ok   r^2 R^2 at node 1 = 0.0000
+  ok   5s (m = 0): spin flip reverses the current exactly (-0.0850)
+== motion ==
+  ok   no thrust: probe turns with the current 0.367 rad/s (omega 0.367)
+  ok   pure current keeps the radius (exact rotation)
+  ok   thrust speed limited: 0.340 RView/s
+  ok   spin flip
+  ok   flip cooldown blocks a second flip
+  ok   sitting on the node drains coherence: 0.70 after 1 s
+== black holes ==
+  ok   CLASSIC: black holes per level 0 0 0 0 0 0, all >= 0.45 RView from the start
+  ok   BLACK HOLE: black holes per level 1 1 2 2 3 3, all >= 0.45 RView from the start
+  ok   SINGULARITY: black holes per level 2 2 3 3 5 5, all >= 0.45 RView from the start
+  ok   pull at the capture radius = top speed 0.34 RView/s (0.340), towards the hole
+  ok   pull at 4 Rc is weak: 0.031 RView/s
+  ok   inside Rc the probe falls in despite full thrust (0.03 s)
+  ok   horizon costs 35 % coherence (0.65)
+  ok   Hawking ejection: far side of the orbital, 2 s immune, still playing
+  ok   at 3 Rc full thrust escapes (now 7.9 Rc)
+  ok   horizon with coherence 0.2 -> SPAGHETTIFIED (lost)
+  ok   quantum swallowed, singularity grows Rc x1.08, a new quantum spawns
+  ok   edge bonus: quantum at 2 Rc scores x2 (200)
+  ok   black hole drifts with the current (0.122 rad/s) and turns round after a spin flip (-0.122 rad/s)
+== 30 levels and their rules ==
+  ok   30 levels in 5 worlds, all complete
+  ok   every orbital has density in the game plane z = 0 (l - |m| even)
+  ok   level 14 "LOCKED DOWN": starts spin DOWN, flip blocked (SPIN LOCKED DOWN)
+  ok   level 10 TURBO: current x 1.60
+  ok   level 7 MIRROR: Schroedinger current clockwise (-0.0477), level 1 counter-clockwise (0.0477)
+  ok   level 12 PHOTON RUSH: a photon every 4.2 s
+  ok   level 17 NODE STORM: drain 0.54 /s
+-- data files (levels / sounds / effects)
+  ok   pauli_levels.ini saved and loaded
+  ok   levels round trip: 30 / 30 identical (rules text too)
+  ok   edited level 3 = 4d m 0, rule "TURBO x1.5"
+  ok   invalid level 4 (|m| > l) falls back to the built-in level
+  ok   built-in level 1 passes CheckLevel
+  ok   CheckLevel refuses an orbital without density in z = 0: l - |m| odd: the orbital is empty in the plane z = 0
+  ok   pauli_fx.ini round trip (colour, float, int)
+  ok   an effect value out of range is clamped
+  ok   61 effect parameters, all defaults inside their range
+  ok   default cloud colours = the original HydrogenFlow colours (20000 / 20000 particles)
+  ok   cloud_ccw = green recolours the CCW particles (20000)
+  ok   pauli_sounds.ini round trip (pitch + a custom design)
+  ok   all 22 sounds render
+== bot plays every level (3 seeds), mode CLASSIC ==
+  L1 FIRST CURRENT     WON   11.9 s  10/10  score  3280  stars 3  flips  0  nodes  0  combo  9  coh 1.00  BH 0 hits 0 eaten  0 edge 0
+  L1 FIRST CURRENT     WON    9.7 s  10/10  score  3300  stars 3  flips  0  nodes  0  combo  9  coh 1.00  BH 0 hits 0 eaten  0 edge 0
+  L1 FIRST CURRENT     WON    9.1 s  10/10  score  3310  stars 3  flips  0  nodes  0  combo  9  coh 1.00  BH 0 hits 0 eaten  0 edge 0
+  L1 FIRST CURRENT     WON   15.5 s  10/10  score  4640  stars 3  flips  0  nodes  0  combo 10  coh 1.00  BH 0 hits 0 eaten  0 edge 0
+  L1 FIRST CURRENT     WON   11.1 s  10/10  score  3290  stars 3  flips  0  nodes  0  combo  9  coh 1.00  BH 0 hits 0 eaten  0 edge 0
+  ok   CLASSIC level 1 FIRST CURRENT winnable by the bot: 5 / 5
+  L2 ONE RADIAL NODE   WON   24.8 s  12/12  score  5250  stars 3  flips  4  nodes  0  combo 12  coh 1.00  BH 0 hits 0 eaten  0 edge 0
+  L2 ONE RADIAL NODE   WON   12.7 s  12/12  score  3863  stars 3  flips  2  nodes  1  combo 11  coh 0.99  BH 0 hits 0 eaten  0 edge 0
+  L2 ONE RADIAL NODE   WON   16.6 s  12/12  score  5330  stars 3  flips  2  nodes  0  combo 12  coh 1.00  BH 0 hits 0 eaten  0 edge 0
+  L2 ONE RADIAL NODE   WON   15.4 s  12/12  score  3840  stars 3  flips  3  nodes  1  combo 11  coh 0.98  BH 0 hits 0 eaten  0 edge 0
+  L2 ONE RADIAL NODE   WON   17.7 s  12/12  score  5320  stars 3  flips  0  nodes  0  combo 12  coh 1.00  BH 0 hits 0 eaten  0 edge 0
+  ok   CLASSIC level 2 ONE RADIAL NODE winnable by the bot: 5 / 5
+  L3 DOUBLE TWIST      WON   20.6 s  14/14  score  5890  stars 3  flips  0  nodes  0  combo 14  coh 1.00  BH 0 hits 0 eaten  0 edge 0
+  L3 DOUBLE TWIST      WON   18.9 s  14/14  score  5910  stars 3  flips  0  nodes  0  combo 14  coh 1.00  BH 0 hits 0 eaten  0 edge 0
+  L3 DOUBLE TWIST      WON   16.5 s  14/14  score  5930  stars 3  flips  0  nodes  0  combo 14  coh 1.00  BH 0 hits 0 eaten  0 edge 0
+  L3 DOUBLE TWIST      WON   20.6 s  14/14  score  5890  stars 3  flips  0  nodes  0  combo 14  coh 1.00  BH 0 hits 0 eaten  0 edge 0
+  L3 DOUBLE TWIST      WON   19.9 s  14/14  score  5900  stars 3  flips  0  nodes  0  combo 14  coh 1.00  BH 0 hits 0 eaten  0 edge 0
+  ok   CLASSIC level 3 DOUBLE TWIST winnable by the bot: 5 / 5
+  L4 F-RING            WON   19.3 s  14/14  score  5910  stars 3  flips  0  nodes  0  combo 14  coh 1.00  BH 0 hits 0 eaten  0 edge 0
+  L4 F-RING            WON   19.7 s  14/14  score  5900  stars 3  flips  0  nodes  0  combo 14  coh 1.00  BH 0 hits 0 eaten  0 edge 0
+  L4 F-RING            WON   22.0 s  14/14  score  4455  stars 3  flips  0  nodes  0  combo  8  coh 1.00  BH 0 hits 0 eaten  0 edge 0
+  L4 F-RING            WON   22.8 s  14/14  score  5870  stars 3  flips  0  nodes  0  combo 14  coh 1.00  BH 0 hits 0 eaten  0 edge 0
+  L4 F-RING            WON   19.6 s  14/14  score  5900  stars 3  flips  0  nodes  0  combo 14  coh 1.00  BH 0 hits 0 eaten  0 edge 0
+  ok   CLASSIC level 4 F-RING winnable by the bot: 5 / 5
+  L5 SPIN ONLY         WON   24.0 s  16/16  score  4960  stars 3  flips  5  nodes  2  combo 15  coh 1.00  BH 0 hits 0 eaten  0 edge 0
+  L5 SPIN ONLY         WON   31.7 s  16/16  score  7680  stars 3  flips  9  nodes 18  combo 16  coh 1.00  BH 0 hits 0 eaten  0 edge 0
+  L5 SPIN ONLY         LOST  80.0 s   6/16  score   975  stars 0  flips 31  nodes 13  combo  5  coh 0.98  BH 0 hits 0 eaten  0 edge 0
+  L5 SPIN ONLY         WON   34.0 s  16/16  score  7135  stars 3  flips  7  nodes 11  combo 14  coh 1.00  BH 0 hits 0 eaten  0 edge 0
+  L5 SPIN ONLY         WON   28.5 s  16/16  score  7910  stars 3  flips  7  nodes  7  combo 17  coh 1.00  BH 0 hits 0 eaten  0 edge 0
+  ok   CLASSIC level 5 SPIN ONLY winnable by the bot: 4 / 5
+  L6 PAULI CURRENT 6p  WON   47.1 s  20/20  score  6255  stars 3  flips  8  nodes  9  combo 14  coh 1.00  BH 0 hits 0 eaten  0 edge 0
+  L6 PAULI CURRENT 6p  WON   30.5 s  20/20  score  9240  stars 3  flips  9  nodes 19  combo 21  coh 1.00  BH 0 hits 0 eaten  0 edge 0
+  L6 PAULI CURRENT 6p  WON   23.9 s  20/20  score  7610  stars 3  flips  5  nodes  5  combo 19  coh 1.00  BH 0 hits 0 eaten  0 edge 0
+  L6 PAULI CURRENT 6p  WON   36.9 s  20/20  score  7580  stars 3  flips 11  nodes 12  combo 13  coh 1.00  BH 0 hits 0 eaten  0 edge 0
+  L6 PAULI CURRENT 6p  WON   37.9 s  20/20  score  7545  stars 3  flips 10  nodes 14  combo 15  coh 1.00  BH 0 hits 0 eaten  0 edge 0
+  ok   CLASSIC level 6 PAULI CURRENT 6p winnable by the bot: 5 / 5
+  L7 MIRROR            WON   14.0 s  10/10  score  4760  stars 3  flips  0  nodes  0  combo 10  coh 1.00  BH 0 hits 0 eaten  0 edge 0
+  L7 MIRROR            WON   19.2 s  10/10  score  2835  stars 3  flips  0  nodes  0  combo  7  coh 1.00  BH 0 hits 0 eaten  0 edge 0
+  L7 MIRROR            WON    9.5 s  10/10  score  3300  stars 3  flips  0  nodes  0  combo  9  coh 1.00  BH 0 hits 0 eaten  0 edge 0
+  L7 MIRROR            WON   22.7 s  10/10  score  4470  stars 3  flips  1  nodes  0  combo 10  coh 1.00  BH 0 hits 0 eaten  0 edge 0
+  L7 MIRROR            WON   17.4 s  10/10  score  3230  stars 3  flips  1  nodes  0  combo  9  coh 1.00  BH 0 hits 0 eaten  0 edge 0
+  ok   CLASSIC level 7 MIRROR winnable by the bot: 5 / 5
+  L8 COUNTER TWIST     WON   17.6 s  12/12  score  4070  stars 3  flips  0  nodes  0  combo  8  coh 1.00  BH 0 hits 0 eaten  0 edge 0
+  L8 COUNTER TWIST     WON   17.2 s  12/12  score  5330  stars 3  flips  0  nodes  0  combo 12  coh 1.00  BH 0 hits 0 eaten  0 edge 0
+  L8 COUNTER TWIST     WON   19.5 s  12/12  score  3800  stars 3  flips  0  nodes  0  combo 11  coh 1.00  BH 0 hits 0 eaten  0 edge 0
+  L8 COUNTER TWIST     WON   20.4 s  12/12  score  5100  stars 3  flips  0  nodes  0  combo 11  coh 1.00  BH 0 hits 0 eaten  0 edge 0
+  L8 COUNTER TWIST     WON   20.5 s  12/12  score  5200  stars 3  flips  0  nodes  0  combo 12  coh 1.00  BH 0 hits 0 eaten  0 edge 0
+  ok   CLASSIC level 8 COUNTER TWIST winnable by the bot: 5 / 5
+  L9 STILL WATER       WON   14.9 s  12/12  score  3850  stars 3  flips  0  nodes  0  combo 11  coh 1.00  BH 0 hits 0 eaten  0 edge 0
+  L9 STILL WATER       WON   13.3 s  12/12  score  3870  stars 3  flips  0  nodes  0  combo 11  coh 1.00  BH 0 hits 0 eaten  0 edge 0
+  L9 STILL WATER       WON   12.7 s  12/12  score  3870  stars 3  flips  0  nodes  0  combo 11  coh 1.00  BH 0 hits 0 eaten  0 edge 0
+  L9 STILL WATER       WON   18.7 s  12/12  score  5310  stars 3  flips  0  nodes  0  combo 12  coh 1.00  BH 0 hits 0 eaten  0 edge 0
+  L9 STILL WATER       WON   16.3 s  12/12  score  5340  stars 3  flips  0  nodes  0  combo 12  coh 1.00  BH 0 hits 0 eaten  0 edge 0
+  ok   CLASSIC level 9 STILL WATER winnable by the bot: 5 / 5
+  L10 TURBO 4d          WON   22.5 s  14/14  score  4380  stars 3  flips  3  nodes  0  combo 13  coh 1.00  BH 0 hits 0 eaten  0 edge 0
+  L10 TURBO 4d          WON   23.0 s  14/14  score  4355  stars 3  flips  5  nodes  5  combo 13  coh 0.97  BH 0 hits 0 eaten  0 edge 0
+  L10 TURBO 4d          WON   21.6 s  14/14  score  3855  stars 3  flips  3  nodes  3  combo 10  coh 1.00  BH 0 hits 0 eaten  0 edge 0
+  L10 TURBO 4d          WON   26.1 s  14/14  score  5840  stars 3  flips  3  nodes  1  combo 14  coh 1.00  BH 0 hits 0 eaten  0 edge 0
+  L10 TURBO 4d          WON   32.8 s  14/14  score  4345  stars 3  flips  4  nodes  2  combo  9  coh 1.00  BH 0 hits 0 eaten  0 edge 0
+  ok   CLASSIC level 10 TURBO 4d winnable by the bot: 5 / 5
+  L11 CALM 4f           WON   23.1 s  14/14  score  5570  stars 3  flips  0  nodes  0  combo 14  coh 1.00  BH 0 hits 0 eaten  0 edge 0
+  L11 CALM 4f           WON   16.6 s  14/14  score  4330  stars 3  flips  0  nodes  0  combo 13  coh 1.00  BH 0 hits 0 eaten  0 edge 0
+  L11 CALM 4f           WON   19.4 s  14/14  score  5810  stars 3  flips  0  nodes  0  combo 14  coh 1.00  BH 0 hits 0 eaten  0 edge 0
+  L11 CALM 4f           WON   20.2 s  14/14  score  4300  stars 3  flips  0  nodes  0  combo 13  coh 1.00  BH 0 hits 0 eaten  0 edge 0
+  L11 CALM 4f           WON   21.3 s  14/14  score  5790  stars 3  flips  1  nodes  0  combo 14  coh 1.00  BH 0 hits 0 eaten  0 edge 0
+  ok   CLASSIC level 11 CALM 4f winnable by the bot: 5 / 5
+  L12 PHOTON RUSH       WON   52.2 s  18/18  score 11630  stars 3  flips 13  nodes 10  combo 14  coh 1.00  BH 0 hits 0 eaten  0 edge 0
+  L12 PHOTON RUSH       WON   37.1 s  18/18  score 11380  stars 3  flips  8  nodes  9  combo 11  coh 1.00  BH 0 hits 0 eaten  0 edge 0
+  L12 PHOTON RUSH       WON   31.3 s  18/18  score 10030  stars 3  flips  6  nodes  4  combo 20  coh 0.98  BH 0 hits 0 eaten  0 edge 0
+  L12 PHOTON RUSH       WON   38.2 s  18/18  score 10470  stars 3  flips  7  nodes  7  combo 14  coh 1.00  BH 0 hits 0 eaten  0 edge 0
+  L12 PHOTON RUSH       WON   29.6 s  18/18  score  8450  stars 3  flips  4  nodes  3  combo 19  coh 1.00  BH 0 hits 0 eaten  0 edge 0
+  ok   CLASSIC level 12 PHOTON RUSH winnable by the bot: 5 / 5
+  L13 LOCKED UP         WON   23.2 s  12/12  score  3770  stars 3  flips  0  nodes  0  combo 11  coh 1.00  BH 0 hits 0 eaten  0 edge 0
+  L13 LOCKED UP         WON   12.7 s  12/12  score  3870  stars 3  flips  0  nodes  0  combo 11  coh 1.00  BH 0 hits 0 eaten  0 edge 0
+  L13 LOCKED UP         WON   15.8 s  12/12  score  3840  stars 3  flips  0  nodes  0  combo 11  coh 1.00  BH 0 hits 0 eaten  0 edge 0
+  L13 LOCKED UP         WON   25.2 s  12/12  score  3750  stars 3  flips  0  nodes  0  combo 11  coh 1.00  BH 0 hits 0 eaten  0 edge 0
+  L13 LOCKED UP         WON   16.4 s  12/12  score  5340  stars 3  flips  0  nodes  0  combo 12  coh 1.00  BH 0 hits 0 eaten  0 edge 0
+  ok   CLASSIC level 13 LOCKED UP winnable by the bot: 5 / 5
+  L14 LOCKED DOWN       WON   19.1 s  12/12  score  5360  stars 3  flips  0  nodes  2  combo 12  coh 1.00  BH 0 hits 0 eaten  0 edge 0
+  L14 LOCKED DOWN       WON   21.7 s  12/12  score  4405  stars 3  flips  0  nodes  4  combo  9  coh 1.00  BH 0 hits 0 eaten  0 edge 0
+  L14 LOCKED DOWN       WON   36.1 s  12/12  score  2940  stars 3  flips  0  nodes 10  combo  5  coh 1.00  BH 0 hits 0 eaten  0 edge 0
+  L14 LOCKED DOWN       WON   17.4 s  12/12  score  3880  stars 3  flips  0  nodes  0  combo 11  coh 1.00  BH 0 hits 0 eaten  0 edge 0
+  L14 LOCKED DOWN       WON   21.5 s  12/12  score  3840  stars 3  flips  0  nodes  3  combo 11  coh 1.00  BH 0 hits 0 eaten  0 edge 0
+  ok   CLASSIC level 14 LOCKED DOWN winnable by the bot: 5 / 5
+  L15 F-LOCK            WON   58.6 s  14/14  score  3310  stars 3  flips  0  nodes  7  combo  8  coh 1.00  BH 0 hits 0 eaten  0 edge 0
+  L15 F-LOCK            WON   23.3 s  14/14  score  3895  stars 3  flips  0  nodes  2  combo 10  coh 1.00  BH 0 hits 0 eaten  0 edge 0
+  L15 F-LOCK            WON   30.5 s  14/14  score  5356  stars 3  flips  0  nodes  5  combo  8  coh 0.96  BH 0 hits 0 eaten  0 edge 0
+  L15 F-LOCK            WON   22.9 s  14/14  score  4398  stars 3  flips  0  nodes  4  combo 13  coh 0.96  BH 0 hits 0 eaten  0 edge 0
+  L15 F-LOCK            WON   26.0 s  14/14  score  5890  stars 3  flips  0  nodes  0  combo 14  coh 1.00  BH 0 hits 0 eaten  0 edge 0
+  ok   CLASSIC level 15 F-LOCK winnable by the bot: 5 / 5
+  L16 FROZEN SPIN       WON   21.3 s  14/14  score  4440  stars 3  flips  0  nodes  1  combo 13  coh 1.00  BH 0 hits 0 eaten  0 edge 0
+  L16 FROZEN SPIN       WON   45.1 s  14/14  score  5375  stars 3  flips  0  nodes 12  combo  8  coh 1.00  BH 0 hits 0 eaten  0 edge 0
+  L16 FROZEN SPIN       WON   75.8 s  14/14  score  3140  stars 2  flips  0  nodes 17  combo  8  coh 1.00  BH 0 hits 0 eaten  0 edge 0
+  L16 FROZEN SPIN       WON   28.8 s  14/14  score  7360  stars 3  flips  0  nodes  5  combo 15  coh 1.00  BH 0 hits 0 eaten  0 edge 0
+  L16 FROZEN SPIN       WON   18.2 s  14/14  score  5951  stars 3  flips  0  nodes  3  combo 14  coh 0.96  BH 0 hits 0 eaten  0 edge 0
+  ok   CLASSIC level 16 FROZEN SPIN winnable by the bot: 5 / 5
+  L17 NODE STORM        WON   26.0 s  16/16  score  5890  stars 3  flips  0  nodes  0  combo 12  coh 1.00  BH 0 hits 0 eaten  0 edge 0
+  L17 NODE STORM        WON   24.6 s  16/16  score  4950  stars 3  flips  0  nodes  4  combo  8  coh 1.00  BH 0 hits 0 eaten  0 edge 0
+  L17 NODE STORM        WON   22.5 s  16/16  score  6436  stars 3  flips  0  nodes 11  combo 16  coh 0.71  BH 0 hits 0 eaten  0 edge 0
+  L17 NODE STORM        WON   34.0 s  16/16  score  7701  stars 3  flips  0  nodes 12  combo 17  coh 0.88  BH 0 hits 0 eaten  0 edge 0
+  L17 NODE STORM        WON   29.2 s  16/16  score  6131  stars 3  flips  0  nodes  7  combo 14  coh 0.99  BH 0 hits 0 eaten  0 edge 0
+  ok   CLASSIC level 17 NODE STORM winnable by the bot: 5 / 5
+  L18 LOCK 6f           WON   36.6 s  18/18  score  8471  stars 3  flips  0  nodes  8  combo 19  coh 0.98  BH 0 hits 0 eaten  0 edge 0
+  L18 LOCK 6f           WON   36.6 s  18/18  score  5919  stars 3  flips  0  nodes  9  combo 13  coh 0.98  BH 0 hits 0 eaten  0 edge 0
+  L18 LOCK 6f           WON   33.3 s  18/18  score  8620  stars 3  flips  0  nodes  9  combo 19  coh 1.00  BH 0 hits 0 eaten  0 edge 0
+  L18 LOCK 6f           WON   36.9 s  18/18  score  7080  stars 3  flips  0  nodes  6  combo 18  coh 1.00  BH 0 hits 0 eaten  0 edge 0
+  L18 LOCK 6f           WON   31.5 s  18/18  score  7130  stars 3  flips  0  nodes 14  combo 18  coh 1.00  BH 0 hits 0 eaten  0 edge 0
+  ok   CLASSIC level 18 LOCK 6f winnable by the bot: 5 / 5
+  L19 RYDBERG 7s        WON   26.8 s  16/16  score  5319  stars 3  flips  6  nodes  4  combo 12  coh 0.98  BH 0 hits 0 eaten  0 edge 0
+  L19 RYDBERG 7s        WON   25.0 s  16/16  score  5086  stars 3  flips  9  nodes 20  combo 15  coh 0.97  BH 0 hits 0 eaten  0 edge 0
+  L19 RYDBERG 7s        WON   29.9 s  16/16  score  6800  stars 3  flips  8  nodes 17  combo 12  coh 1.00  BH 0 hits 0 eaten  0 edge 0
+  L19 RYDBERG 7s        WON   32.2 s  16/16  score  5780  stars 3  flips 10  nodes 10  combo 12  coh 1.00  BH 0 hits 0 eaten  0 edge 0
+  L19 RYDBERG 7s        WON   30.6 s  16/16  score  4840  stars 3  flips  9  nodes 11  combo 14  coh 1.00  BH 0 hits 0 eaten  0 edge 0
+  ok   CLASSIC level 19 RYDBERG 7s winnable by the bot: 5 / 5
+  L20 RYDBERG 7p        WON   28.3 s  18/18  score  5720  stars 3  flips  7  nodes  8  combo 17  coh 1.00  BH 0 hits 0 eaten  0 edge 0
+  L20 RYDBERG 7p        WON   38.7 s  18/18  score  6110  stars 3  flips 12  nodes 24  combo 10  coh 1.00  BH 0 hits 0 eaten  0 edge 0
+  L20 RYDBERG 7p        WON   30.2 s  18/18  score  6325  stars 3  flips 11  nodes 14  combo 11  coh 1.00  BH 0 hits 0 eaten  0 edge 0
+  L20 RYDBERG 7p        WON   30.5 s  18/18  score  8590  stars 3  flips  8  nodes  8  combo 19  coh 1.00  BH 0 hits 0 eaten  0 edge 0
+  L20 RYDBERG 7p        WON   33.3 s  18/18  score  5870  stars 3  flips 10  nodes 14  combo 10  coh 1.00  BH 0 hits 0 eaten  0 edge 0
+  ok   CLASSIC level 20 RYDBERG 7p winnable by the bot: 5 / 5
+  L21 TIME ATTACK       WON   23.6 s  14/14  score  4160  stars 3  flips  5  nodes  8  combo 13  coh 1.00  BH 0 hits 0 eaten  0 edge 0
+  L21 TIME ATTACK       WON   34.8 s  14/14  score  3825  stars 3  flips 12  nodes 19  combo  9  coh 1.00  BH 0 hits 0 eaten  0 edge 0
+  L21 TIME ATTACK       WON   43.2 s  14/14  score  4570  stars 3  flips  8  nodes 10  combo  7  coh 1.00  BH 0 hits 0 eaten  0 edge 0
+  L21 TIME ATTACK       WON   26.8 s  14/14  score  5630  stars 3  flips  2  nodes  2  combo 14  coh 1.00  BH 0 hits 0 eaten  0 edge 0
+  L21 TIME ATTACK       WON   28.3 s  14/14  score  5870  stars 3  flips  5  nodes  3  combo 11  coh 1.00  BH 0 hits 0 eaten  0 edge 0
+  ok   CLASSIC level 21 TIME ATTACK winnable by the bot: 5 / 5
+  L22 8p                WON   35.6 s  18/18  score  7190  stars 3  flips 11  nodes 13  combo 18  coh 1.00  BH 0 hits 0 eaten  0 edge 0
+  L22 8p                WON   19.4 s  18/18  score  5823  stars 3  flips  6  nodes 12  combo 17  coh 0.93  BH 0 hits 0 eaten  0 edge 0
+  L22 8p                WON   37.0 s  18/18  score  5462  stars 3  flips 12  nodes 14  combo 13  coh 0.96  BH 0 hits 0 eaten  0 edge 0
+  L22 8p                WON   32.9 s  18/18  score  6020  stars 3  flips  7  nodes 11  combo  9  coh 1.00  BH 0 hits 0 eaten  0 edge 0
+  L22 8p                WON   31.7 s  18/18  score  7230  stars 3  flips 11  nodes 17  combo 18  coh 1.00  BH 0 hits 0 eaten  0 edge 0
+  ok   CLASSIC level 22 8p winnable by the bot: 5 / 5
+  L23 TURBO 8g          WON   40.8 s  18/18  score 10090  stars 3  flips  6  nodes  9  combo 20  coh 1.00  BH 0 hits 0 eaten  0 edge 0
+  L23 TURBO 8g          WON   30.8 s  18/18  score  7190  stars 3  flips  7  nodes 14  combo 18  coh 1.00  BH 0 hits 0 eaten  0 edge 0
+  L23 TURBO 8g          LOST  31.4 s   9/18  score  3200  stars 0  flips  2  nodes 13  combo  9  coh 0.00  BH 0 hits 0 eaten  0 edge 0
+  L23 TURBO 8g          WON   38.3 s  18/18  score  8620  stars 3  flips  9  nodes 13  combo 19  coh 1.00  BH 0 hits 0 eaten  0 edge 0
+  L23 TURBO 8g          WON   32.5 s  18/18  score  8670  stars 3  flips  5  nodes  3  combo 19  coh 1.00  BH 0 hits 0 eaten  0 edge 0
+  ok   CLASSIC level 23 TURBO 8g winnable by the bot: 4 / 5
+  L24 MARATHON 9p       WON   43.1 s  26/26  score  8503  stars 3  flips 12  nodes 16  combo 22  coh 0.97  BH 0 hits 0 eaten  0 edge 0
+  L24 MARATHON 9p       WON   45.4 s  26/26  score  9850  stars 3  flips 16  nodes 36  combo 22  coh 1.00  BH 0 hits 0 eaten  0 edge 0
+  L24 MARATHON 9p       WON   37.0 s  26/26  score  9930  stars 3  flips 11  nodes 17  combo 26  coh 1.00  BH 0 hits 0 eaten  0 edge 0
+  L24 MARATHON 9p       WON   62.7 s  26/26  score 11270  stars 3  flips 15  nodes 24  combo 18  coh 1.00  BH 0 hits 0 eaten  0 edge 0
+  L24 MARATHON 9p       WON   56.3 s  26/26  score  9290  stars 3  flips 13  nodes 28  combo 18  coh 1.00  BH 0 hits 0 eaten  0 edge 0
+  ok   CLASSIC level 24 MARATHON 9p winnable by the bot: 5 / 5
+  L25 STORM RUSH        WON   27.1 s  16/16  score 10730  stars 3  flips  0  nodes  0  combo 19  coh 1.00  BH 0 hits 0 eaten  0 edge 0
+  L25 STORM RUSH        WON   25.8 s  16/16  score  9440  stars 3  flips  0  nodes  0  combo 18  coh 1.00  BH 0 hits 0 eaten  0 edge 0
+  L25 STORM RUSH        WON   25.9 s  16/16  score  7940  stars 3  flips  0  nodes  0  combo 17  coh 1.00  BH 0 hits 0 eaten  0 edge 0
+  L25 STORM RUSH        WON   33.0 s  16/16  score 10870  stars 3  flips  0  nodes  0  combo 19  coh 1.00  BH 0 hits 0 eaten  0 edge 0
+  L25 STORM RUSH        WON   25.4 s  16/16  score  5825  stars 3  flips  0  nodes  0  combo 11  coh 1.00  BH 0 hits 0 eaten  0 edge 0
+  ok   CLASSIC level 25 STORM RUSH winnable by the bot: 5 / 5
+  L26 LOCKED TURBO      WON   23.7 s  16/16  score  6260  stars 3  flips  0  nodes  0  combo 16  coh 1.00  BH 0 hits 0 eaten  0 edge 0
+  L26 LOCKED TURBO      WON   21.5 s  16/16  score  4990  stars 3  flips  0  nodes  0  combo 15  coh 1.00  BH 0 hits 0 eaten  0 edge 0
+  L26 LOCKED TURBO      WON   24.4 s  16/16  score  4960  stars 3  flips  0  nodes  0  combo 15  coh 1.00  BH 0 hits 0 eaten  0 edge 0
+  L26 LOCKED TURBO      WON   26.2 s  16/16  score  7940  stars 3  flips  0  nodes  0  combo 17  coh 1.00  BH 0 hits 0 eaten  0 edge 0
+  L26 LOCKED TURBO      WON   23.5 s  16/16  score  4970  stars 3  flips  0  nodes  0  combo 15  coh 1.00  BH 0 hits 0 eaten  0 edge 0
+  ok   CLASSIC level 26 LOCKED TURBO winnable by the bot: 5 / 5
+  L27 MIRROR MARATHON   WON   38.5 s  24/24  score 10420  stars 3  flips 10  nodes 10  combo 25  coh 1.00  BH 0 hits 0 eaten  0 edge 0
+  L27 MIRROR MARATHON   WON   46.7 s  24/24  score 10397  stars 3  flips 17  nodes 20  combo 14  coh 0.98  BH 0 hits 0 eaten  0 edge 0
+  L27 MIRROR MARATHON   WON   33.9 s  24/24  score  7660  stars 3  flips  9  nodes 10  combo 16  coh 1.00  BH 0 hits 0 eaten  0 edge 0
+  L27 MIRROR MARATHON   WON   43.3 s  24/24  score 11870  stars 3  flips 13  nodes 11  combo 26  coh 1.00  BH 0 hits 0 eaten  0 edge 0
+  L27 MIRROR MARATHON   WON   38.7 s  24/24  score  9103  stars 3  flips 11  nodes 13  combo 24  coh 0.99  BH 0 hits 0 eaten  0 edge 0
+  ok   CLASSIC level 27 MIRROR MARATHON winnable by the bot: 5 / 5
+  L28 FAST F            WON   22.8 s  14/14  score  5520  stars 3  flips  4  nodes  4  combo 14  coh 1.00  BH 0 hits 0 eaten  0 edge 0
+  L28 FAST F            WON   34.6 s  14/14  score  5650  stars 3  flips  9  nodes 12  combo 11  coh 1.00  BH 0 hits 0 eaten  0 edge 0
+  L28 FAST F            WON   23.2 s  14/14  score  5620  stars 3  flips  5  nodes 10  combo 14  coh 1.00  BH 0 hits 0 eaten  0 edge 0
+  L28 FAST F            WON   45.2 s  14/14  score  4750  stars 3  flips  3  nodes  7  combo  9  coh 1.00  BH 0 hits 0 eaten  0 edge 0
+  L28 FAST F            WON   32.5 s  14/14  score  4320  stars 3  flips  8  nodes  4  combo  7  coh 1.00  BH 0 hits 0 eaten  0 edge 0
+  ok   CLASSIC level 28 FAST F winnable by the bot: 5 / 5
+  L29 DEEP FREEZE       LOST  34.4 s   3/16  score   375  stars 0  flips  0  nodes 24  combo  2  coh 0.00  BH 0 hits 0 eaten  0 edge 0
+  L29 DEEP FREEZE       LOST  92.9 s   9/16  score  1800  stars 0  flips  0  nodes 44  combo  8  coh 0.00  BH 0 hits 0 eaten  0 edge 0
+  L29 DEEP FREEZE       WON   26.8 s  16/16  score  4255  stars 3  flips  0  nodes 11  combo  8  coh 1.00  BH 0 hits 0 eaten  0 edge 0
+  L29 DEEP FREEZE       WON   36.8 s  16/16  score  8030  stars 3  flips  0  nodes 12  combo 17  coh 1.00  BH 0 hits 0 eaten  0 edge 0
+  L29 DEEP FREEZE       WON   27.4 s  16/16  score  4571  stars 3  flips  0  nodes  8  combo 12  coh 0.93  BH 0 hits 0 eaten  0 edge 0
+  ok   CLASSIC level 29 DEEP FREEZE winnable by the bot: 3 / 5
+  L30 PAULI STORM 9g    WON   44.3 s  24/24  score 13760  stars 3  flips  8  nodes 14  combo 27  coh 1.00  BH 0 hits 0 eaten  0 edge 0
+  L30 PAULI STORM 9g    WON   87.7 s  24/24  score 12145  stars 3  flips 12  nodes 21  combo 25  coh 1.00  BH 0 hits 0 eaten  0 edge 0
+  L30 PAULI STORM 9g    LOST 140.0 s   4/24  score   450  stars 0  flips  2  nodes  7  combo  1  coh 1.00  BH 0 hits 0 eaten  0 edge 0
+  L30 PAULI STORM 9g    WON   39.7 s  24/24  score 12292  stars 3  flips  8  nodes 10  combo 26  coh 0.98  BH 0 hits 0 eaten  0 edge 0
+  L30 PAULI STORM 9g    WON   50.0 s  24/24  score 16950  stars 3  flips 10  nodes 11  combo 25  coh 1.00  BH 0 hits 0 eaten  0 edge 0
+  ok   CLASSIC level 30 PAULI STORM 9g winnable by the bot: 4 / 5
+  CLASSIC: bot won 145 of 150
+== bot plays every level (3 seeds), mode BLACK HOLE ==
+  L1 FIRST CURRENT     WON   11.4 s  10/10  score  3290  stars 3  flips  0  nodes  0  combo  9  coh 1.00  BH 1 hits 0 eaten  0 edge 0
+  L1 FIRST CURRENT     WON    9.9 s  10/10  score  3300  stars 3  flips  0  nodes  0  combo  9  coh 1.00  BH 1 hits 0 eaten  0 edge 0
+  L1 FIRST CURRENT     WON   17.4 s  10/10  score  4055  stars 3  flips  0  nodes  0  combo  8  coh 1.00  BH 1 hits 0 eaten  0 edge 0
+  L1 FIRST CURRENT     WON   15.5 s  10/10  score  4640  stars 3  flips  0  nodes  0  combo 10  coh 1.00  BH 1 hits 0 eaten  0 edge 0
+  L1 FIRST CURRENT     WON   12.3 s  10/10  score  3280  stars 3  flips  0  nodes  0  combo  9  coh 1.00  BH 1 hits 0 eaten  0 edge 0
+  ok   BLACK HOLE level 1 FIRST CURRENT winnable by the bot: 5 / 5
+  L2 ONE RADIAL NODE   WON   17.5 s  12/12  score  5320  stars 3  flips  2  nodes  0  combo 12  coh 1.00  BH 1 hits 0 eaten  0 edge 0
+  L2 ONE RADIAL NODE   LOST  80.0 s   7/12  score  1225  stars 0  flips  3  nodes  1  combo  6  coh 1.00  BH 1 hits 0 eaten  0 edge 0
+  L2 ONE RADIAL NODE   WON   19.5 s  12/12  score  5310  stars 3  flips  2  nodes  2  combo 12  coh 1.00  BH 1 hits 0 eaten  1 edge 0
+  L2 ONE RADIAL NODE   WON   18.6 s  12/12  score  5310  stars 3  flips  2  nodes  0  combo 12  coh 1.00  BH 1 hits 0 eaten  0 edge 0
+  L2 ONE RADIAL NODE   WON   17.9 s  12/12  score  5320  stars 3  flips  1  nodes  0  combo 12  coh 1.00  BH 1 hits 0 eaten  0 edge 0
+  ok   BLACK HOLE level 2 ONE RADIAL NODE winnable by the bot: 4 / 5
+  L3 DOUBLE TWIST      WON   25.6 s  14/14  score  5840  stars 3  flips  0  nodes  0  combo 14  coh 1.00  BH 2 hits 0 eaten  1 edge 0
+  L3 DOUBLE TWIST      WON   15.3 s  14/14  score  4450  stars 3  flips  0  nodes  0  combo 13  coh 1.00  BH 2 hits 0 eaten  0 edge 0
+  L3 DOUBLE TWIST      WON   33.3 s  14/14  score  4570  stars 3  flips  0  nodes  3  combo  9  coh 1.00  BH 2 hits 0 eaten  1 edge 0
+  L3 DOUBLE TWIST      WON   20.9 s  14/14  score  5890  stars 3  flips  0  nodes  0  combo 14  coh 1.00  BH 2 hits 0 eaten  0 edge 0
+  L3 DOUBLE TWIST      WON   20.4 s  14/14  score  5900  stars 3  flips  0  nodes  0  combo 14  coh 1.00  BH 2 hits 0 eaten  0 edge 0
+  ok   BLACK HOLE level 3 DOUBLE TWIST winnable by the bot: 5 / 5
+  L4 F-RING            WON   27.7 s  14/14  score  3945  stars 3  flips  0  nodes  0  combo 11  coh 1.00  BH 2 hits 0 eaten  1 edge 0
+  L4 F-RING            WON   19.6 s  14/14  score  5900  stars 3  flips  0  nodes  0  combo 14  coh 1.00  BH 2 hits 0 eaten  3 edge 0
+  L4 F-RING            WON   28.6 s  14/14  score  3210  stars 3  flips  0  nodes  4  combo  7  coh 1.00  BH 2 hits 0 eaten  2 edge 0
+  L4 F-RING            WON   23.2 s  14/14  score  5670  stars 3  flips  0  nodes  0  combo 14  coh 1.00  BH 2 hits 0 eaten  0 edge 0
+  L4 F-RING            WON   22.2 s  14/14  score  4380  stars 3  flips  0  nodes  0  combo 13  coh 1.00  BH 2 hits 0 eaten  2 edge 0
+  ok   BLACK HOLE level 4 F-RING winnable by the bot: 5 / 5
+  L5 SPIN ONLY         WON   31.9 s  16/16  score  5530  stars 3  flips  6  nodes  3  combo 11  coh 1.00  BH 3 hits 0 eaten  0 edge 0
+  L5 SPIN ONLY         WON   41.5 s  16/16  score  5076  stars 3  flips 12  nodes 28  combo  9  coh 0.99  BH 3 hits 1 eaten  1 edge 1
+  L5 SPIN ONLY         WON   37.2 s  16/16  score  3020  stars 2  flips 10  nodes 23  combo  6  coh 0.43  BH 3 hits 2 eaten  2 edge 0
+  L5 SPIN ONLY         WON   32.1 s  16/16  score  6405  stars 3  flips  6  nodes  7  combo 10  coh 1.00  BH 3 hits 1 eaten  0 edge 0
+  L5 SPIN ONLY         WON   45.0 s  16/16  score  4225  stars 3  flips  9  nodes 14  combo  7  coh 1.00  BH 3 hits 0 eaten  1 edge 0
+  ok   BLACK HOLE level 5 SPIN ONLY winnable by the bot: 5 / 5
+  L6 PAULI CURRENT 6p  LOST  95.0 s   0/20  score     0  stars 0  flips  2  nodes  4  combo  0  coh 1.00  BH 3 hits 0 eaten  1 edge 0
+  L6 PAULI CURRENT 6p  WON   52.0 s  20/20  score  5130  stars 3  flips 18  nodes 32  combo  7  coh 1.00  BH 3 hits 1 eaten  2 edge 0
+  L6 PAULI CURRENT 6p  WON   39.2 s  20/20  score  5285  stars 3  flips 11  nodes 15  combo 12  coh 1.00  BH 3 hits 0 eaten  1 edge 0
+  L6 PAULI CURRENT 6p  LOST  95.0 s  15/20  score  5000  stars 0  flips  8  nodes  7  combo 15  coh 1.00  BH 3 hits 0 eaten  3 edge 0
+  L6 PAULI CURRENT 6p  WON   56.9 s  20/20  score  5205  stars 3  flips 17  nodes 15  combo 12  coh 1.00  BH 3 hits 0 eaten  5 edge 0
+  ok   BLACK HOLE level 6 PAULI CURRENT 6p winnable by the bot: 3 / 5
+  L7 MIRROR            WON   13.4 s  10/10  score  3270  stars 3  flips  1  nodes  0  combo  9  coh 1.00  BH 1 hits 0 eaten  1 edge 0
+  L7 MIRROR            WON   12.2 s  10/10  score  3280  stars 3  flips  0  nodes  0  combo  9  coh 1.00  BH 1 hits 0 eaten  0 edge 0
+  L7 MIRROR            WON   12.2 s  10/10  score  3280  stars 3  flips  1  nodes  0  combo  9  coh 1.00  BH 1 hits 0 eaten  0 edge 0
+  L7 MIRROR            WON   22.7 s  10/10  score  4470  stars 3  flips  1  nodes  0  combo 10  coh 1.00  BH 1 hits 0 eaten  0 edge 0
+  L7 MIRROR            WON   19.2 s  10/10  score  4510  stars 3  flips  0  nodes  0  combo  9  coh 1.00  BH 1 hits 0 eaten  0 edge 0
+  ok   BLACK HOLE level 7 MIRROR winnable by the bot: 5 / 5
+  L8 COUNTER TWIST     WON   18.9 s  12/12  score  3085  stars 3  flips  0  nodes  0  combo  6  coh 1.00  BH 2 hits 0 eaten  3 edge 0
+  L8 COUNTER TWIST     WON   12.8 s  12/12  score  5370  stars 3  flips  0  nodes  0  combo 12  coh 1.00  BH 2 hits 0 eaten  0 edge 0
+  L8 COUNTER TWIST     WON   20.2 s  12/12  score  5200  stars 3  flips  0  nodes  0  combo 12  coh 1.00  BH 2 hits 0 eaten  1 edge 0
+  L8 COUNTER TWIST     WON   21.0 s  12/12  score  3790  stars 3  flips  0  nodes  0  combo 11  coh 1.00  BH 2 hits 0 eaten  0 edge 0
+  L8 COUNTER TWIST     WON   16.3 s  12/12  score  5340  stars 3  flips  0  nodes  0  combo 12  coh 1.00  BH 2 hits 0 eaten  0 edge 0
+  ok   BLACK HOLE level 8 COUNTER TWIST winnable by the bot: 5 / 5
+  L9 STILL WATER       WON   22.3 s  12/12  score  4755  stars 3  flips  0  nodes  0  combo  9  coh 1.00  BH 1 hits 0 eaten  1 edge 0
+  L9 STILL WATER       WON   13.1 s  12/12  score  3870  stars 3  flips  0  nodes  0  combo 11  coh 1.00  BH 1 hits 0 eaten  0 edge 0
+  L9 STILL WATER       WON   14.5 s  12/12  score  3860  stars 3  flips  0  nodes  2  combo 11  coh 1.00  BH 1 hits 0 eaten  0 edge 0
+  L9 STILL WATER       WON   20.5 s  12/12  score  5300  stars 3  flips  0  nodes  0  combo 12  coh 1.00  BH 1 hits 0 eaten  0 edge 0
+  L9 STILL WATER       WON   16.4 s  12/12  score  5340  stars 3  flips  0  nodes  0  combo 12  coh 1.00  BH 1 hits 0 eaten  0 edge 0
+  ok   BLACK HOLE level 9 STILL WATER winnable by the bot: 5 / 5
+  L10 TURBO 4d          WON   35.2 s  14/14  score  5025  stars 3  flips  6  nodes  3  combo 11  coh 1.00  BH 2 hits 0 eaten  4 edge 0
+  L10 TURBO 4d          WON   27.7 s  14/14  score  7220  stars 3  flips  5  nodes  4  combo 15  coh 1.00  BH 2 hits 0 eaten  2 edge 0
+  L10 TURBO 4d          WON   27.0 s  14/14  score  4230  stars 3  flips  4  nodes  2  combo  9  coh 1.00  BH 2 hits 0 eaten  3 edge 0
+  L10 TURBO 4d          LOST  80.0 s   2/14  score   225  stars 0  flips  2  nodes 46  combo  1  coh 0.64  BH 2 hits 0 eaten  0 edge 0
+  L10 TURBO 4d          WON   24.2 s  14/14  score  3835  stars 3  flips  3  nodes  0  combo 10  coh 1.00  BH 2 hits 0 eaten  2 edge 0
+  ok   BLACK HOLE level 10 TURBO 4d winnable by the bot: 4 / 5
+  L11 CALM 4f           WON   54.5 s  14/14  score  3360  stars 3  flips  1  nodes  0  combo  6  coh 1.00  BH 2 hits 0 eaten  1 edge 0
+  L11 CALM 4f           WON   18.4 s  14/14  score  5820  stars 3  flips  0  nodes  0  combo 14  coh 1.00  BH 2 hits 0 eaten  0 edge 0
+  L11 CALM 4f           WON   22.8 s  14/14  score  5245  stars 3  flips  1  nodes  2  combo 11  coh 1.00  BH 2 hits 0 eaten  2 edge 0
+  L11 CALM 4f           WON   19.0 s  14/14  score  4310  stars 3  flips  0  nodes  0  combo 13  coh 1.00  BH 2 hits 0 eaten  0 edge 0
+  L11 CALM 4f           WON   19.0 s  14/14  score  5810  stars 3  flips  1  nodes  0  combo 14  coh 1.00  BH 2 hits 0 eaten  0 edge 0
+  ok   BLACK HOLE level 11 CALM 4f winnable by the bot: 5 / 5
+  L12 PHOTON RUSH       LOST  82.8 s  15/18  score 10525  stars 0  flips 12  nodes 25  combo 12  coh 0.00  BH 3 hits 1 eaten 10 edge 0
+  L12 PHOTON RUSH       LOST  56.9 s  14/18  score  5975  stars 0  flips  8  nodes 22  combo  9  coh 0.00  BH 3 hits 0 eaten  6 edge 0
+  L12 PHOTON RUSH       WON   41.4 s  18/18  score  8836  stars 3  flips  7  nodes  7  combo 18  coh 0.94  BH 3 hits 1 eaten  9 edge 0
+  L12 PHOTON RUSH       WON   38.9 s  18/18  score  9960  stars 3  flips  9  nodes  5  combo 20  coh 1.00  BH 3 hits 0 eaten  1 edge 0
+  L12 PHOTON RUSH       LOST  39.3 s  11/18  score  4600  stars 0  flips  6  nodes 19  combo 12  coh 0.00  BH 3 hits 0 eaten 10 edge 0
+  ok   BLACK HOLE level 12 PHOTON RUSH winnable by the bot: 2 / 5
+  L13 LOCKED UP         WON   17.9 s  12/12  score  3820  stars 3  flips  0  nodes  0  combo 11  coh 1.00  BH 1 hits 0 eaten  0 edge 0
+  L13 LOCKED UP         WON   17.1 s  12/12  score  5330  stars 3  flips  0  nodes  0  combo 12  coh 1.00  BH 1 hits 0 eaten  0 edge 0
+  L13 LOCKED UP         WON   22.1 s  12/12  score  3780  stars 3  flips  0  nodes  2  combo 11  coh 1.00  BH 1 hits 0 eaten  0 edge 0
+  L13 LOCKED UP         WON   31.1 s  12/12  score  2940  stars 3  flips  0  nodes  0  combo  5  coh 1.00  BH 1 hits 0 eaten  0 edge 0
+  L13 LOCKED UP         WON   15.6 s  12/12  score  3840  stars 3  flips  0  nodes  0  combo 11  coh 1.00  BH 1 hits 0 eaten  0 edge 0
+  ok   BLACK HOLE level 13 LOCKED UP winnable by the bot: 5 / 5
+  L14 LOCKED DOWN       WON   22.9 s  12/12  score  3682  stars 3  flips  0  nodes  0  combo 11  coh 0.72  BH 2 hits 1 eaten  1 edge 0
+  L14 LOCKED DOWN       WON   20.2 s  12/12  score  3850  stars 3  flips  0  nodes  6  combo 11  coh 1.00  BH 2 hits 0 eaten  1 edge 0
+  L14 LOCKED DOWN       WON   41.8 s  12/12  score  4205  stars 3  flips  0  nodes 26  combo  9  coh 1.00  BH 2 hits 0 eaten  1 edge 0
+  L14 LOCKED DOWN       WON   28.7 s  12/12  score  4735  stars 3  flips  0  nodes  5  combo  9  coh 1.00  BH 2 hits 0 eaten  0 edge 0
+  L14 LOCKED DOWN       WON   25.1 s  12/12  score  4250  stars 3  flips  0  nodes  8  combo  9  coh 0.95  BH 2 hits 0 eaten  4 edge 0
+  ok   BLACK HOLE level 14 LOCKED DOWN winnable by the bot: 5 / 5
+  L15 F-LOCK            WON   58.4 s  14/14  score  3042  stars 2  flips  0  nodes  8  combo  6  coh 0.64  BH 2 hits 2 eaten  2 edge 0
+  L15 F-LOCK            WON   66.8 s  14/14  score  4930  stars 3  flips  0  nodes  8  combo 10  coh 1.00  BH 2 hits 0 eaten  4 edge 0
+  L15 F-LOCK            WON   60.6 s  14/14  score  5965  stars 3  flips  0  nodes  8  combo 13  coh 1.00  BH 2 hits 0 eaten  0 edge 0
+  L15 F-LOCK            WON   35.6 s  14/14  score  4265  stars 3  flips  0  nodes  6  combo  9  coh 0.95  BH 2 hits 0 eaten  0 edge 0
+  L15 F-LOCK            WON   33.2 s  14/14  score  3845  stars 3  flips  0  nodes  5  combo  5  coh 1.00  BH 2 hits 0 eaten  1 edge 0
+  ok   BLACK HOLE level 15 F-LOCK winnable by the bot: 5 / 5
+  L16 FROZEN SPIN       WON   35.4 s  14/14  score  5837  stars 3  flips  0  nodes 11  combo  9  coh 0.92  BH 2 hits 0 eaten  1 edge 0
+  L16 FROZEN SPIN       WON   31.6 s  14/14  score  3474  stars 3  flips  0  nodes 12  combo  6  coh 0.99  BH 2 hits 0 eaten  1 edge 0
+  L16 FROZEN SPIN       WON   72.1 s  14/14  score  3820  stars 3  flips  0  nodes 30  combo  6  coh 0.98  BH 2 hits 0 eaten  2 edge 0
+  L16 FROZEN SPIN       WON   26.9 s  14/14  score  5402  stars 3  flips  0  nodes  2  combo 12  coh 0.99  BH 2 hits 0 eaten  0 edge 0
+  L16 FROZEN SPIN       WON   28.6 s  14/14  score  3710  stars 3  flips  0  nodes  7  combo  9  coh 1.00  BH 2 hits 0 eaten  5 edge 0
+  ok   BLACK HOLE level 16 FROZEN SPIN winnable by the bot: 5 / 5
+  L17 NODE STORM        WON   35.2 s  16/16  score  4000  stars 3  flips  0  nodes  4  combo  9  coh 1.00  BH 2 hits 0 eaten  1 edge 0
+  L17 NODE STORM        LOST  12.7 s   5/16  score   600  stars 0  flips  0  nodes  8  combo  2  coh 0.00  BH 2 hits 0 eaten  0 edge 0
+  L17 NODE STORM        WON   27.2 s  16/16  score  3905  stars 3  flips  0  nodes  7  combo  6  coh 1.00  BH 2 hits 0 eaten  2 edge 1
+  L17 NODE STORM        WON   35.0 s  16/16  score  7275  stars 3  flips  0  nodes 12  combo 15  coh 1.00  BH 2 hits 0 eaten  0 edge 0
+  L17 NODE STORM        WON   44.8 s  16/16  score  4095  stars 3  flips  0  nodes 14  combo  6  coh 0.39  BH 2 hits 2 eaten  2 edge 0
+  ok   BLACK HOLE level 17 NODE STORM winnable by the bot: 4 / 5
+  L18 LOCK 6f           WON   66.9 s  18/18  score  5545  stars 3  flips  0  nodes 32  combo  9  coh 0.88  BH 3 hits 0 eaten  3 edge 0
+  L18 LOCK 6f           WON   40.2 s  18/18  score  7600  stars 3  flips  0  nodes 10  combo 15  coh 1.00  BH 3 hits 0 eaten  2 edge 0
+  L18 LOCK 6f           WON   56.0 s  18/18  score  7515  stars 3  flips  0  nodes 16  combo 13  coh 1.00  BH 3 hits 0 eaten  3 edge 0
+  L18 LOCK 6f           WON   42.9 s  18/18  score  6770  stars 3  flips  0  nodes  6  combo 14  coh 1.00  BH 3 hits 0 eaten  0 edge 0
+  L18 LOCK 6f           WON   38.2 s  18/18  score  6120  stars 3  flips  0  nodes 15  combo 14  coh 1.00  BH 3 hits 0 eaten  4 edge 0
+  ok   BLACK HOLE level 18 LOCK 6f winnable by the bot: 5 / 5
+  L19 RYDBERG 7s        LOST  10.8 s   4/16  score   550  stars 0  flips  3  nodes  1  combo  3  coh 0.00  BH 2 hits 0 eaten  0 edge 0
+  L19 RYDBERG 7s        WON   29.1 s  16/16  score  5318  stars 3  flips 11  nodes 18  combo 13  coh 0.97  BH 2 hits 0 eaten  0 edge 0
+  L19 RYDBERG 7s        WON   67.3 s  16/16  score  5230  stars 3  flips 25  nodes 57  combo  6  coh 1.00  BH 2 hits 0 eaten  4 edge 0
+  L19 RYDBERG 7s        WON   47.4 s  16/16  score  5125  stars 3  flips 14  nodes 16  combo  7  coh 0.99  BH 2 hits 0 eaten  0 edge 0
+  L19 RYDBERG 7s        WON   42.1 s  16/16  score  4478  stars 3  flips 11  nodes 12  combo  9  coh 0.95  BH 2 hits 0 eaten  0 edge 0
+  ok   BLACK HOLE level 19 RYDBERG 7s winnable by the bot: 4 / 5
+  L20 RYDBERG 7p        WON   31.3 s  18/18  score  7090  stars 3  flips  7  nodes  1  combo 18  coh 1.00  BH 2 hits 1 eaten  0 edge 0
+  L20 RYDBERG 7p        WON   32.4 s  18/18  score  7072  stars 3  flips 10  nodes 18  combo 18  coh 0.98  BH 2 hits 0 eaten  0 edge 0
+  L20 RYDBERG 7p        WON   42.6 s  18/18  score  5420  stars 3  flips 14  nodes 11  combo  9  coh 1.00  BH 2 hits 1 eaten  2 edge 0
+  L20 RYDBERG 7p        WON   36.4 s  18/18  score  6615  stars 3  flips  7  nodes  4  combo 15  coh 1.00  BH 2 hits 0 eaten  0 edge 0
+  L20 RYDBERG 7p        WON   33.1 s  18/18  score  7170  stars 3  flips 12  nodes 19  combo 18  coh 1.00  BH 2 hits 0 eaten  0 edge 0
+  ok   BLACK HOLE level 20 RYDBERG 7p winnable by the bot: 5 / 5
+  L21 TIME ATTACK       WON   21.4 s  14/14  score  5690  stars 3  flips  5  nodes  2  combo 14  coh 1.00  BH 3 hits 0 eaten  0 edge 0
+  L21 TIME ATTACK       WON   28.5 s  14/14  score  5895  stars 3  flips  9  nodes 15  combo 12  coh 1.00  BH 3 hits 0 eaten  0 edge 0
+  L21 TIME ATTACK       WON   17.9 s  14/14  score  4220  stars 3  flips  4  nodes  8  combo 13  coh 1.00  BH 3 hits 0 eaten  3 edge 0
+  L21 TIME ATTACK       WON   29.6 s  14/14  score  5225  stars 3  flips  8  nodes 11  combo 12  coh 1.00  BH 3 hits 0 eaten  0 edge 0
+  L21 TIME ATTACK       LOST  39.5 s  11/14  score  2650  stars 0  flips  3  nodes 36  combo  7  coh 0.00  BH 3 hits 0 eaten  3 edge 0
+  ok   BLACK HOLE level 21 TIME ATTACK winnable by the bot: 4 / 5
+  L22 8p                WON   53.2 s  18/18  score  4695  stars 3  flips 17  nodes 19  combo  7  coh 1.00  BH 3 hits 1 eaten  1 edge 0
+  L22 8p                WON   32.7 s  18/18  score  4840  stars 3  flips 11  nodes 14  combo 12  coh 0.54  BH 3 hits 0 eaten  1 edge 2
+  L22 8p                WON   77.5 s  18/18  score  7620  stars 3  flips 24  nodes 71  combo 10  coh 1.00  BH 3 hits 1 eaten  5 edge 1
+  L22 8p                WON   30.7 s  18/18  score  7240  stars 3  flips  7  nodes 14  combo 18  coh 1.00  BH 3 hits 0 eaten  1 edge 0
+  L22 8p                WON   37.6 s  18/18  score  4270  stars 3  flips 10  nodes 16  combo  8  coh 1.00  BH 3 hits 0 eaten  1 edge 0
+  ok   BLACK HOLE level 22 8p winnable by the bot: 5 / 5
+  L23 TURBO 8g          WON   27.3 s  18/18  score  5980  stars 3  flips  1  nodes  0  combo 14  coh 1.00  BH 3 hits 0 eaten  0 edge 0
+  L23 TURBO 8g          WON   40.4 s  18/18  score  7472  stars 3  flips  8  nodes 14  combo 16  coh 0.99  BH 3 hits 0 eaten  0 edge 0
+  L23 TURBO 8g          LOST  24.3 s   5/18  score   750  stars 0  flips  2  nodes 24  combo  4  coh 0.00  BH 3 hits 0 eaten  2 edge 0
+  L23 TURBO 8g          WON   55.9 s  18/18  score  6315  stars 3  flips 13  nodes 16  combo  8  coh 1.00  BH 3 hits 0 eaten  2 edge 0
+  L23 TURBO 8g          WON   58.0 s  18/18  score  4770  stars 3  flips 12  nodes 19  combo  9  coh 1.00  BH 3 hits 1 eaten  3 edge 0
+  ok   BLACK HOLE level 23 TURBO 8g winnable by the bot: 4 / 5
+  L24 MARATHON 9p       WON   77.5 s  26/26  score  9434  stars 3  flips 26  nodes 45  combo 17  coh 0.98  BH 3 hits 0 eaten  4 edge 0
+  L24 MARATHON 9p       WON   55.6 s  26/26  score  9988  stars 3  flips 16  nodes 24  combo 12  coh 0.95  BH 3 hits 0 eaten  3 edge 0
+  L24 MARATHON 9p       WON   53.6 s  26/26  score  9304  stars 3  flips 15  nodes 31  combo 18  coh 0.99  BH 3 hits 0 eaten  1 edge 1
+  L24 MARATHON 9p       LOST 140.0 s   1/26  score   100  stars 0  flips  4  nodes 10  combo  0  coh 1.00  BH 3 hits 0 eaten  0 edge 0
+  L24 MARATHON 9p       LOST 140.0 s  25/26  score  6275  stars 0  flips 29  nodes 57  combo  8  coh 1.00  BH 3 hits 0 eaten  6 edge 0
+  ok   BLACK HOLE level 24 MARATHON 9p winnable by the bot: 3 / 5
+  L25 STORM RUSH        WON   50.1 s  16/16  score  4775  stars 3  flips  0  nodes  1  combo  5  coh 1.00  BH 3 hits 0 eaten  5 edge 0
+  L25 STORM RUSH        WON   28.3 s  16/16  score  8770  stars 3  flips  0  nodes  0  combo 15  coh 1.00  BH 3 hits 0 eaten  1 edge 0
+  L25 STORM RUSH        WON   31.8 s  16/16  score  9429  stars 3  flips  0  nodes  5  combo  9  coh 0.70  BH 3 hits 0 eaten  2 edge 0
+  L25 STORM RUSH        WON   32.7 s  16/16  score  6545  stars 3  flips  0  nodes  0  combo 14  coh 1.00  BH 3 hits 0 eaten  4 edge 0
+  L25 STORM RUSH        WON   37.5 s  16/16  score 14120  stars 3  flips  0  nodes  0  combo 21  coh 1.00  BH 3 hits 0 eaten  4 edge 0
+  ok   BLACK HOLE level 25 STORM RUSH winnable by the bot: 5 / 5
+  L26 LOCKED TURBO      WON   29.6 s  16/16  score  6400  stars 3  flips  0  nodes  0  combo 16  coh 1.00  BH 3 hits 0 eaten  6 edge 0
+  L26 LOCKED TURBO      WON   23.0 s  16/16  score  4970  stars 3  flips  0  nodes  0  combo 15  coh 1.00  BH 3 hits 0 eaten  1 edge 0
+  L26 LOCKED TURBO      WON   22.0 s  16/16  score  4899  stars 3  flips  0  nodes  0  combo 15  coh 0.84  BH 3 hits 1 eaten  4 edge 0
+  L26 LOCKED TURBO      WON   34.0 s  16/16  score  3985  stars 3  flips  0  nodes  0  combo  8  coh 1.00  BH 3 hits 0 eaten  3 edge 0
+  L26 LOCKED TURBO      WON   47.1 s  16/16  score  3980  stars 3  flips  0  nodes  0  combo 11  coh 1.00  BH 3 hits 0 eaten  4 edge 0
+  ok   BLACK HOLE level 26 LOCKED TURBO winnable by the bot: 5 / 5
+  L27 MIRROR MARATHON   WON   35.5 s  24/24  score  8155  stars 3  flips  5  nodes  2  combo 18  coh 0.68  BH 3 hits 1 eaten  0 edge 0
+  L27 MIRROR MARATHON   WON   51.4 s  24/24  score  8840  stars 3  flips 16  nodes 18  combo 12  coh 1.00  BH 3 hits 1 eaten  2 edge 2
+  L27 MIRROR MARATHON   LOST 120.0 s  20/24  score  7450  stars 0  flips 33  nodes 45  combo 16  coh 1.00  BH 3 hits 0 eaten  5 edge 0
+  L27 MIRROR MARATHON   WON   48.6 s  24/24  score  6108  stars 3  flips 10  nodes  9  combo 14  coh 1.00  BH 3 hits 1 eaten  1 edge 0
+  L27 MIRROR MARATHON   LOST 120.0 s  12/24  score  2050  stars 0  flips  8  nodes 12  combo  7  coh 0.99  BH 3 hits 0 eaten  8 edge 0
+  ok   BLACK HOLE level 27 MIRROR MARATHON winnable by the bot: 3 / 5
+  L28 FAST F            WON   22.9 s  14/14  score  3394  stars 3  flips  4  nodes  7  combo  7  coh 1.00  BH 4 hits 0 eaten  2 edge 0
+  L28 FAST F            WON   26.9 s  14/14  score  4005  stars 3  flips  8  nodes  9  combo  7  coh 1.00  BH 4 hits 0 eaten  0 edge 0
+  L28 FAST F            WON   23.9 s  14/14  score  5160  stars 3  flips  5  nodes  4  combo 12  coh 1.00  BH 4 hits 1 eaten  4 edge 1
+  L28 FAST F            WON   32.7 s  14/14  score  4970  stars 3  flips  8  nodes 10  combo 10  coh 1.00  BH 4 hits 0 eaten  3 edge 0
+  L28 FAST F            WON   30.9 s  14/14  score  4360  stars 3  flips  9  nodes 15  combo  7  coh 0.99  BH 4 hits 1 eaten  5 edge 1
+  ok   BLACK HOLE level 28 FAST F winnable by the bot: 5 / 5
+  L29 DEEP FREEZE       LOST 100.0 s  15/16  score  5150  stars 0  flips  0  nodes 36  combo  7  coh 0.80  BH 3 hits 0 eaten  3 edge 0
+  L29 DEEP FREEZE       WON   41.2 s  16/16  score  5565  stars 3  flips  0  nodes 23  combo  8  coh 0.95  BH 3 hits 0 eaten  0 edge 1
+  L29 DEEP FREEZE       LOST 100.0 s   8/16  score  1175  stars 0  flips  0  nodes 33  combo  5  coh 1.00  BH 3 hits 0 eaten 11 edge 0
+  L29 DEEP FREEZE       WON   40.6 s  16/16  score  7264  stars 3  flips  0  nodes 10  combo  9  coh 0.95  BH 3 hits 0 eaten  0 edge 0
+  L29 DEEP FREEZE       WON   32.6 s  16/16  score  4853  stars 3  flips  0  nodes 12  combo 14  coh 0.97  BH 3 hits 0 eaten  0 edge 0
+  ok   BLACK HOLE level 29 DEEP FREEZE winnable by the bot: 3 / 5
+  L30 PAULI STORM 9g    LOST  15.3 s   4/24  score   550  stars 0  flips  2  nodes 15  combo  3  coh 0.00  BH 4 hits 0 eaten  1 edge 0
+  L30 PAULI STORM 9g    WON   53.7 s  24/24  score 14960  stars 3  flips 17  nodes 22  combo 21  coh 1.00  BH 4 hits 0 eaten  6 edge 0
+  L30 PAULI STORM 9g    WON   55.2 s  24/24  score 15975  stars 3  flips  9  nodes 12  combo 20  coh 1.00  BH 4 hits 1 eaten  9 edge 0
+  L30 PAULI STORM 9g    WON   60.2 s  24/24  score  7400  stars 3  flips 16  nodes 20  combo 15  coh 1.00  BH 4 hits 0 eaten  3 edge 0
+  L30 PAULI STORM 9g    WON   48.2 s  24/24  score  8420  stars 3  flips  8  nodes 16  combo  9  coh 1.00  BH 4 hits 0 eaten  9 edge 0
+  ok   BLACK HOLE level 30 PAULI STORM 9g winnable by the bot: 4 / 5
+  BLACK HOLE: bot won 132 of 150
+== bot plays every level (3 seeds), mode SINGULARITY ==
+  L1 FIRST CURRENT     WON   18.7 s  10/10  score  3485  stars 3  flips  0  nodes  0  combo  7  coh 1.00  BH 2 hits 0 eaten  1 edge 0
+  L1 FIRST CURRENT     WON    9.9 s  10/10  score  3300  stars 3  flips  0  nodes  0  combo  9  coh 1.00  BH 2 hits 0 eaten  0 edge 0
+  L1 FIRST CURRENT     WON   19.0 s  10/10  score  3285  stars 3  flips  0  nodes  1  combo  6  coh 1.00  BH 2 hits 0 eaten  0 edge 0
+  L1 FIRST CURRENT     WON   18.5 s  10/10  score  4620  stars 3  flips  0  nodes  0  combo 10  coh 1.00  BH 2 hits 0 eaten  0 edge 0
+  L1 FIRST CURRENT     WON   12.0 s  10/10  score  3280  stars 3  flips  0  nodes  0  combo  9  coh 1.00  BH 2 hits 0 eaten  0 edge 0
+  ok   SINGULARITY level 1 FIRST CURRENT winnable by the bot: 5 / 5
+  L2 ONE RADIAL NODE   WON   19.6 s  12/12  score  5300  stars 3  flips  2  nodes  0  combo 12  coh 1.00  BH 2 hits 0 eaten  0 edge 0
+  L2 ONE RADIAL NODE   WON   18.1 s  12/12  score  5320  stars 3  flips  2  nodes  2  combo 12  coh 1.00  BH 2 hits 0 eaten  0 edge 0
+  L2 ONE RADIAL NODE   WON   25.8 s  12/12  score  3440  stars 3  flips  4  nodes  2  combo  6  coh 1.00  BH 2 hits 0 eaten  4 edge 0
+  L2 ONE RADIAL NODE   WON   18.2 s  12/12  score  5320  stars 3  flips  5  nodes  2  combo 12  coh 1.00  BH 2 hits 0 eaten  0 edge 0
+  L2 ONE RADIAL NODE   WON   22.4 s  12/12  score  5180  stars 3  flips  4  nodes  1  combo 12  coh 1.00  BH 2 hits 0 eaten  1 edge 0
+  ok   SINGULARITY level 2 ONE RADIAL NODE winnable by the bot: 5 / 5
+  L3 DOUBLE TWIST      WON   37.6 s  14/14  score  4670  stars 3  flips  0  nodes  1  combo  9  coh 1.00  BH 3 hits 0 eaten  3 edge 0
+  L3 DOUBLE TWIST      WON   15.3 s  14/14  score  4450  stars 3  flips  0  nodes  0  combo 13  coh 1.00  BH 3 hits 0 eaten  0 edge 0
+  L3 DOUBLE TWIST      WON   23.9 s  14/14  score  3360  stars 3  flips  0  nodes  0  combo  6  coh 1.00  BH 3 hits 0 eaten  0 edge 0
+  L3 DOUBLE TWIST      WON   23.2 s  14/14  score  4320  stars 3  flips  0  nodes  1  combo  9  coh 1.00  BH 3 hits 0 eaten  0 edge 0
+  L3 DOUBLE TWIST      WON   28.9 s  14/14  score  5810  stars 3  flips  0  nodes  0  combo 14  coh 1.00  BH 3 hits 0 eaten  3 edge 0
+  ok   SINGULARITY level 3 DOUBLE TWIST winnable by the bot: 5 / 5
+  L4 F-RING            WON   64.8 s  14/14  score  4200  stars 3  flips  0  nodes  2  combo  3  coh 1.00  BH 3 hits 0 eaten  4 edge 0
+  L4 F-RING            WON   18.0 s  14/14  score  5920  stars 3  flips  0  nodes  0  combo 14  coh 1.00  BH 3 hits 0 eaten  0 edge 0
+  L4 F-RING            WON   20.8 s  14/14  score  3740  stars 3  flips  0  nodes  0  combo  9  coh 1.00  BH 3 hits 0 eaten  2 edge 0
+  L4 F-RING            WON   23.0 s  14/14  score  4420  stars 3  flips  0  nodes  0  combo  9  coh 1.00  BH 3 hits 0 eaten  0 edge 0
+  L4 F-RING            WON   28.3 s  14/14  score  5620  stars 3  flips  0  nodes  0  combo 14  coh 1.00  BH 3 hits 0 eaten  1 edge 0
+  ok   SINGULARITY level 4 F-RING winnable by the bot: 5 / 5
+  L5 SPIN ONLY         LOST  80.0 s  12/16  score  3100  stars 0  flips 29  nodes 19  combo  6  coh 1.00  BH 5 hits 0 eaten  0 edge 0
+  L5 SPIN ONLY         WON   60.8 s  16/16  score  3640  stars 3  flips 10  nodes 13  combo  5  coh 1.00  BH 5 hits 0 eaten  2 edge 0
+  L5 SPIN ONLY         WON   51.5 s  16/16  score  3780  stars 3  flips 12  nodes 11  combo  4  coh 1.00  BH 5 hits 1 eaten  1 edge 2
+  L5 SPIN ONLY         WON   47.9 s  16/16  score  5242  stars 3  flips 14  nodes 25  combo  7  coh 0.99  BH 5 hits 1 eaten  2 edge 0
+  L5 SPIN ONLY         WON   29.1 s  16/16  score  4874  stars 3  flips  8  nodes 10  combo 10  coh 0.98  BH 5 hits 0 eaten  0 edge 1
+  ok   SINGULARITY level 5 SPIN ONLY winnable by the bot: 4 / 5
+  L6 PAULI CURRENT 6p  LOST  39.8 s  14/20  score  1875  stars 0  flips 11  nodes  7  combo  4  coh 0.00  BH 5 hits 3 eaten  0 edge 0  SPAGHETTIFIED
+  L6 PAULI CURRENT 6p  WON   71.6 s  20/20  score  4749  stars 3  flips 16  nodes 19  combo  5  coh 0.74  BH 5 hits 3 eaten  8 edge 0
+  L6 PAULI CURRENT 6p  LOST  95.0 s   4/20  score   550  stars 0  flips 35  nodes 89  combo  3  coh 0.78  BH 5 hits 0 eaten  6 edge 0
+  L6 PAULI CURRENT 6p  WON   80.9 s  20/20  score  4215  stars 3  flips 24  nodes 37  combo  5  coh 1.00  BH 5 hits 0 eaten  5 edge 1
+  L6 PAULI CURRENT 6p  LOST  95.0 s  13/20  score  3925  stars 0  flips 16  nodes 14  combo  8  coh 1.00  BH 5 hits 0 eaten  6 edge 2
+  ok   SINGULARITY level 6 PAULI CURRENT 6p winnable by the bot: 2 / 5
+  L7 MIRROR            WON   13.4 s  10/10  score  3270  stars 3  flips  1  nodes  0  combo  9  coh 1.00  BH 2 hits 0 eaten  1 edge 0
+  L7 MIRROR            WON   12.0 s  10/10  score  3280  stars 3  flips  1  nodes  0  combo  9  coh 1.00  BH 2 hits 0 eaten  0 edge 0
+  L7 MIRROR            WON   74.5 s  10/10  score  3060  stars 3  flips  0  nodes 10  combo  7  coh 1.00  BH 2 hits 0 eaten  1 edge 0
+  L7 MIRROR            WON   18.7 s  10/10  score  2710  stars 3  flips  0  nodes  0  combo  6  coh 1.00  BH 2 hits 0 eaten  0 edge 0
+  L7 MIRROR            WON   20.8 s  10/10  score  2815  stars 3  flips  0  nodes  0  combo  7  coh 1.00  BH 2 hits 0 eaten  0 edge 0
+  ok   SINGULARITY level 7 MIRROR winnable by the bot: 5 / 5
+  L8 COUNTER TWIST     WON   34.4 s  12/12  score  3560  stars 3  flips  0  nodes  0  combo  6  coh 1.00  BH 3 hits 0 eaten  1 edge 0
+  L8 COUNTER TWIST     WON   12.8 s  12/12  score  5370  stars 3  flips  0  nodes  0  combo 12  coh 1.00  BH 3 hits 0 eaten  0 edge 0
+  L8 COUNTER TWIST     WON   37.8 s  12/12  score  3395  stars 3  flips  0  nodes  0  combo  6  coh 1.00  BH 3 hits 0 eaten  1 edge 0
+  L8 COUNTER TWIST     WON   42.3 s  12/12  score  4280  stars 3  flips  0  nodes  5  combo  5  coh 1.00  BH 3 hits 0 eaten  1 edge 0
+  L8 COUNTER TWIST     WON   20.1 s  12/12  score  3600  stars 3  flips  0  nodes  0  combo 10  coh 1.00  BH 3 hits 0 eaten  1 edge 0
+  ok   SINGULARITY level 8 COUNTER TWIST winnable by the bot: 5 / 5
+  L9 STILL WATER       WON   14.4 s  12/12  score  3860  stars 3  flips  0  nodes  0  combo 11  coh 1.00  BH 2 hits 0 eaten  1 edge 0
+  L9 STILL WATER       WON   12.2 s  12/12  score  3880  stars 3  flips  0  nodes  0  combo 11  coh 1.00  BH 2 hits 0 eaten  0 edge 0
+  L9 STILL WATER       WON   33.2 s  12/12  score  3370  stars 3  flips  0  nodes  6  combo  6  coh 1.00  BH 2 hits 0 eaten  0 edge 0
+  L9 STILL WATER       WON   18.0 s  12/12  score  5320  stars 3  flips  0  nodes  0  combo 12  coh 1.00  BH 2 hits 0 eaten  0 edge 0
+  L9 STILL WATER       WON   17.1 s  12/12  score  5330  stars 3  flips  0  nodes  0  combo 12  coh 1.00  BH 2 hits 0 eaten  0 edge 0
+  ok   SINGULARITY level 9 STILL WATER winnable by the bot: 5 / 5
+  L10 TURBO 4d          WON   35.6 s  14/14  score  5540  stars 3  flips  7  nodes  4  combo 13  coh 1.00  BH 3 hits 0 eaten  4 edge 0
+  L10 TURBO 4d          LOST  80.0 s   4/14  score   550  stars 0  flips  2  nodes 39  combo  3  coh 0.58  BH 3 hits 0 eaten  0 edge 0
+  L10 TURBO 4d          WON   40.6 s  14/14  score  5290  stars 3  flips  5  nodes  3  combo  8  coh 0.85  BH 3 hits 0 eaten  2 edge 0
+  L10 TURBO 4d          LOST  12.4 s   2/14  score   225  stars 0  flips  2  nodes 10  combo  1  coh 0.00  BH 3 hits 0 eaten  0 edge 0
+  L10 TURBO 4d          WON   25.3 s  14/14  score  3700  stars 3  flips  2  nodes  0  combo  9  coh 1.00  BH 3 hits 0 eaten  6 edge 0
+  ok   SINGULARITY level 10 TURBO 4d winnable by the bot: 3 / 5
+  L11 CALM 4f           WON   42.3 s  14/14  score  3955  stars 3  flips  1  nodes  1  combo  7  coh 1.00  BH 3 hits 0 eaten  1 edge 0
+  L11 CALM 4f           WON   18.4 s  14/14  score  5820  stars 3  flips  1  nodes  0  combo 14  coh 1.00  BH 3 hits 0 eaten  0 edge 0
+  L11 CALM 4f           WON   32.3 s  14/14  score  7180  stars 3  flips  1  nodes  2  combo 15  coh 1.00  BH 3 hits 0 eaten  2 edge 0
+  L11 CALM 4f           WON   17.8 s  14/14  score  4320  stars 3  flips  0  nodes  0  combo 13  coh 1.00  BH 3 hits 0 eaten  0 edge 0
+  L11 CALM 4f           WON   30.6 s  14/14  score  4965  stars 3  flips  1  nodes  1  combo 11  coh 1.00  BH 3 hits 0 eaten  2 edge 0
+  ok   SINGULARITY level 11 CALM 4f winnable by the bot: 5 / 5
+  L12 PHOTON RUSH       WON   43.2 s  18/18  score  8631  stars 3  flips 11  nodes 10  combo 14  coh 0.57  BH 5 hits 2 eaten  7 edge 0
+  L12 PHOTON RUSH       LOST  41.9 s  13/18  score  5900  stars 0  flips  7  nodes 34  combo 14  coh 0.00  BH 5 hits 0 eaten  3 edge 1
+  L12 PHOTON RUSH       WON   66.5 s  18/18  score  6643  stars 3  flips 13  nodes 18  combo  6  coh 0.56  BH 5 hits 1 eaten 15 edge 0
+  L12 PHOTON RUSH       WON   52.4 s  18/18  score  7315  stars 3  flips 14  nodes 14  combo  7  coh 0.97  BH 5 hits 0 eaten  2 edge 0
+  L12 PHOTON RUSH       WON   42.3 s  18/18  score  7630  stars 3  flips 12  nodes 14  combo 10  coh 1.00  BH 5 hits 0 eaten  1 edge 0
+  ok   SINGULARITY level 12 PHOTON RUSH winnable by the bot: 4 / 5
+  L13 LOCKED UP         WON   23.3 s  12/12  score  3570  stars 3  flips  0  nodes  0  combo 10  coh 1.00  BH 2 hits 0 eaten  0 edge 0
+  L13 LOCKED UP         WON   15.9 s  12/12  score  5340  stars 3  flips  0  nodes  0  combo 12  coh 1.00  BH 2 hits 0 eaten  0 edge 0
+  L13 LOCKED UP         WON   32.6 s  12/12  score  3370  stars 3  flips  0  nodes  5  combo  5  coh 1.00  BH 2 hits 0 eaten  2 edge 0
+  L13 LOCKED UP         WON   25.6 s  12/12  score  4715  stars 3  flips  0  nodes  0  combo  9  coh 1.00  BH 2 hits 0 eaten  0 edge 0
+  L13 LOCKED UP         WON   35.6 s  12/12  score  3115  stars 3  flips  0  nodes  0  combo  8  coh 1.00  BH 2 hits 0 eaten  1 edge 0
+  ok   SINGULARITY level 13 LOCKED UP winnable by the bot: 5 / 5
+  L14 LOCKED DOWN       LOST  85.0 s  11/12  score  2975  stars 0  flips  0  nodes 31  combo  7  coh 0.93  BH 3 hits 1 eaten  6 edge 0
+  L14 LOCKED DOWN       WON   16.4 s  12/12  score  5390  stars 3  flips  0  nodes  3  combo 12  coh 1.00  BH 3 hits 0 eaten  0 edge 0
+  L14 LOCKED DOWN       WON   20.9 s  12/12  score  5465  stars 3  flips  0  nodes  1  combo 12  coh 1.00  BH 3 hits 1 eaten  3 edge 1
+  L14 LOCKED DOWN       WON   19.2 s  12/12  score  3860  stars 3  flips  0  nodes  3  combo 11  coh 1.00  BH 3 hits 0 eaten  0 edge 0
+  L14 LOCKED DOWN       WON   37.3 s  12/12  score  2905  stars 3  flips  0  nodes  8  combo  7  coh 1.00  BH 3 hits 0 eaten  5 edge 0
+  ok   SINGULARITY level 14 LOCKED DOWN winnable by the bot: 4 / 5
+  L15 F-LOCK            WON   22.0 s  14/14  score  5830  stars 3  flips  0  nodes  2  combo 14  coh 1.00  BH 3 hits 0 eaten  2 edge 0
+  L15 F-LOCK            WON   27.4 s  14/14  score  5859  stars 3  flips  0  nodes  7  combo 14  coh 0.96  BH 3 hits 1 eaten  0 edge 0
+  L15 F-LOCK            WON   45.6 s  14/14  score  3465  stars 3  flips  0  nodes  3  combo  5  coh 1.00  BH 3 hits 0 eaten  7 edge 0
+  L15 F-LOCK            LOST  85.0 s  10/14  score  2525  stars 0  flips  0  nodes 11  combo  5  coh 1.00  BH 3 hits 0 eaten  2 edge 0
+  L15 F-LOCK            LOST  85.0 s  12/14  score  1525  stars 0  flips  0  nodes 17  combo  4  coh 0.98  BH 3 hits 0 eaten  2 edge 0
+  ok   SINGULARITY level 15 F-LOCK winnable by the bot: 3 / 5
+  L16 FROZEN SPIN       WON   26.3 s  14/14  score  5865  stars 3  flips  0  nodes  3  combo  9  coh 1.00  BH 3 hits 1 eaten  1 edge 0
+  L16 FROZEN SPIN       WON   22.3 s  14/14  score  5797  stars 3  flips  0  nodes  9  combo 14  coh 0.93  BH 3 hits 0 eaten  3 edge 0
+  L16 FROZEN SPIN       LOST   9.5 s   3/14  score   475  stars 0  flips  0  nodes  7  combo  2  coh 0.00  BH 3 hits 0 eaten  2 edge 1
+  L16 FROZEN SPIN       WON   32.2 s  14/14  score  4755  stars 3  flips  0  nodes  8  combo  7  coh 1.00  BH 3 hits 0 eaten  0 edge 0
+  L16 FROZEN SPIN       WON   34.8 s  14/14  score  3575  stars 3  flips  0  nodes 13  combo  9  coh 1.00  BH 3 hits 0 eaten  5 edge 0
+  ok   SINGULARITY level 16 FROZEN SPIN winnable by the bot: 4 / 5
+  L17 NODE STORM        WON   29.3 s  16/16  score  6635  stars 3  flips  0  nodes  2  combo 10  coh 1.00  BH 3 hits 1 eaten  3 edge 0
+  L17 NODE STORM        WON   23.3 s  16/16  score  6453  stars 3  flips  0  nodes  7  combo 16  coh 0.77  BH 3 hits 1 eaten  2 edge 0
+  L17 NODE STORM        LOST  19.5 s   9/16  score  2750  stars 0  flips  0  nodes 10  combo  4  coh 0.00  BH 3 hits 0 eaten  4 edge 3
+  L17 NODE STORM        LOST  28.6 s  13/16  score  2675  stars 0  flips  0  nodes 20  combo  7  coh 0.00  BH 3 hits 0 eaten  1 edge 2
+  L17 NODE STORM        LOST  31.5 s  11/16  score  3425  stars 0  flips  0  nodes 12  combo  8  coh 0.00  BH 3 hits 1 eaten  4 edge 0
+  ok   SINGULARITY level 17 NODE STORM winnable by the bot: 2 / 5
+  L18 LOCK 6f           WON   41.4 s  18/18  score  5767  stars 3  flips  0  nodes 13  combo 14  coh 0.95  BH 5 hits 1 eaten  3 edge 0
+  L18 LOCK 6f           WON   41.9 s  18/18  score  6005  stars 3  flips  0  nodes 13  combo 12  coh 1.00  BH 5 hits 0 eaten  6 edge 0
+  L18 LOCK 6f           LOST  95.0 s   2/18  score   200  stars 0  flips  0  nodes  0  combo  0  coh 1.00  BH 5 hits 0 eaten  3 edge 0
+  L18 LOCK 6f           LOST  13.3 s   3/18  score   375  stars 0  flips  0  nodes  8  combo  2  coh 0.00  BH 5 hits 1 eaten  0 edge 0
+  L18 LOCK 6f           WON   33.2 s  18/18  score  6745  stars 3  flips  0  nodes 13  combo 17  coh 0.65  BH 5 hits 0 eaten  2 edge 0
+  ok   SINGULARITY level 18 LOCK 6f winnable by the bot: 3 / 5
+  L19 RYDBERG 7s        WON   36.1 s  16/16  score  3832  stars 3  flips  8  nodes 14  combo  8  coh 0.93  BH 3 hits 0 eaten  1 edge 0
+  L19 RYDBERG 7s        WON   32.4 s  16/16  score  6762  stars 3  flips 11  nodes 20  combo 14  coh 0.91  BH 3 hits 0 eaten  0 edge 0
+  L19 RYDBERG 7s        WON   61.1 s  16/16  score  3885  stars 3  flips 22  nodes 32  combo  6  coh 0.94  BH 3 hits 0 eaten  3 edge 0
+  L19 RYDBERG 7s        WON   31.7 s  16/16  score  3930  stars 3  flips  6  nodes 13  combo  9  coh 1.00  BH 3 hits 1 eaten  1 edge 0
+  L19 RYDBERG 7s        WON   89.5 s  16/16  score  4088  stars 3  flips 33  nodes 18  combo 11  coh 0.71  BH 3 hits 1 eaten  0 edge 0
+  ok   SINGULARITY level 19 RYDBERG 7s winnable by the bot: 5 / 5
+  L20 RYDBERG 7p        WON   43.7 s  18/18  score  5881  stars 3  flips 10  nodes 19  combo 12  coh 0.89  BH 3 hits 0 eaten  0 edge 0
+  L20 RYDBERG 7p        WON   32.3 s  18/18  score  5067  stars 3  flips 12  nodes 20  combo 10  coh 0.97  BH 3 hits 0 eaten  0 edge 0
+  L20 RYDBERG 7p        WON   55.1 s  18/18  score  5740  stars 3  flips 19  nodes 47  combo 11  coh 0.53  BH 3 hits 0 eaten  4 edge 0
+  L20 RYDBERG 7p        WON   41.1 s  18/18  score  5617  stars 3  flips 11  nodes  6  combo  9  coh 0.85  BH 3 hits 2 eaten  0 edge 0
+  L20 RYDBERG 7p        WON   30.0 s  18/18  score  5936  stars 3  flips 10  nodes 17  combo 17  coh 0.97  BH 3 hits 0 eaten  0 edge 1
+  ok   SINGULARITY level 20 RYDBERG 7p winnable by the bot: 5 / 5
+  L21 TIME ATTACK       LOST  60.0 s  13/14  score  1725  stars 0  flips 17  nodes 36  combo  4  coh 1.00  BH 5 hits 1 eaten  6 edge 0
+  L21 TIME ATTACK       WON   40.6 s  14/14  score  3305  stars 3  flips 12  nodes 18  combo  6  coh 0.98  BH 5 hits 0 eaten  2 edge 0
+  L21 TIME ATTACK       WON   31.6 s  14/14  score  6680  stars 3  flips  8  nodes 12  combo 14  coh 1.00  BH 5 hits 1 eaten  3 edge 0
+  L21 TIME ATTACK       WON   48.4 s  14/14  score  4745  stars 3  flips 11  nodes 19  combo  7  coh 1.00  BH 5 hits 1 eaten  5 edge 1
+  L21 TIME ATTACK       LOST  60.0 s   7/14  score  2775  stars 0  flips  6  nodes 10  combo  7  coh 1.00  BH 5 hits 1 eaten 12 edge 1
+  ok   SINGULARITY level 21 TIME ATTACK winnable by the bot: 3 / 5
+  L22 8p                LOST  41.6 s  12/18  score  2700  stars 0  flips 13  nodes 22  combo 10  coh 0.00  BH 5 hits 1 eaten  5 edge 1
+  L22 8p                LOST  37.7 s  16/18  score  5375  stars 0  flips 13  nodes 23  combo 16  coh 0.00  BH 5 hits 2 eaten  4 edge 1  SPAGHETTIFIED
+  L22 8p                WON   53.9 s  18/18  score  8478  stars 3  flips 14  nodes 34  combo 12  coh 0.54  BH 5 hits 2 eaten  7 edge 3
+  L22 8p                WON   61.0 s  18/18  score  5407  stars 3  flips 19  nodes 41  combo 11  coh 0.58  BH 5 hits 0 eaten  4 edge 0
+  L22 8p                LOST  37.2 s  15/18  score  2650  stars 0  flips 10  nodes 11  combo  8  coh 0.00  BH 5 hits 2 eaten  4 edge 0
+  ok   SINGULARITY level 22 8p winnable by the bot: 2 / 5
+  L23 TURBO 8g          LOST  28.0 s   9/18  score  1300  stars 0  flips  5  nodes 13  combo  4  coh 0.00  BH 5 hits 2 eaten  9 edge 0
+  L23 TURBO 8g          WON   46.4 s  18/18  score  6865  stars 3  flips 11  nodes 13  combo 10  coh 1.00  BH 5 hits 1 eaten  8 edge 1
+  L23 TURBO 8g          WON   42.3 s  18/18  score  5885  stars 3  flips  8  nodes  9  combo 11  coh 0.56  BH 5 hits 1 eaten  7 edge 0
+  L23 TURBO 8g          LOST  29.9 s   6/18  score   700  stars 0  flips  7  nodes 10  combo  2  coh 0.00  BH 5 hits 0 eaten  3 edge 0
+  L23 TURBO 8g          LOST  72.3 s  17/18  score  5575  stars 0  flips 12  nodes 27  combo 13  coh 0.00  BH 5 hits 1 eaten  9 edge 0
+  ok   SINGULARITY level 23 TURBO 8g winnable by the bot: 2 / 5
+  L24 MARATHON 9p       WON   43.1 s  26/26  score  9676  stars 3  flips 13  nodes 19  combo 26  coh 0.61  BH 5 hits 1 eaten  8 edge 0
+  L24 MARATHON 9p       WON   69.0 s  26/26  score  5410  stars 3  flips 20  nodes 44  combo  5  coh 1.00  BH 5 hits 1 eaten  9 edge 0
+  L24 MARATHON 9p       LOST 140.0 s   6/26  score   700  stars 0  flips 13  nodes 54  combo  2  coh 0.99  BH 5 hits 0 eaten 16 edge 0
+  L24 MARATHON 9p       WON   68.6 s  26/26  score  8685  stars 3  flips 18  nodes 44  combo 11  coh 1.00  BH 5 hits 1 eaten  1 edge 2
+  L24 MARATHON 9p       LOST  54.6 s  12/26  score  2150  stars 0  flips 18  nodes 55  combo  4  coh 0.00  BH 5 hits 3 eaten  5 edge 1  SPAGHETTIFIED
+  ok   SINGULARITY level 24 MARATHON 9p winnable by the bot: 3 / 5
+  L25 STORM RUSH        WON   52.5 s  16/16  score  5400  stars 3  flips  0  nodes  3  combo  5  coh 0.64  BH 5 hits 0 eaten  7 edge 0
+  L25 STORM RUSH        WON   27.1 s  16/16  score 11930  stars 3  flips  0  nodes  1  combo 20  coh 1.00  BH 5 hits 0 eaten  1 edge 0
+  L25 STORM RUSH        WON   29.3 s  16/16  score  7010  stars 3  flips  0  nodes  0  combo  9  coh 1.00  BH 5 hits 0 eaten  6 edge 0
+  L25 STORM RUSH        WON   26.5 s  16/16  score  7930  stars 3  flips  0  nodes  0  combo 17  coh 1.00  BH 5 hits 0 eaten  4 edge 0
+  L25 STORM RUSH        WON   51.5 s  16/16  score  6269  stars 3  flips  0  nodes  2  combo  7  coh 0.71  BH 5 hits 0 eaten  6 edge 0
+  ok   SINGULARITY level 25 STORM RUSH winnable by the bot: 5 / 5
+  L26 LOCKED TURBO      LOST  38.3 s  15/16  score  5475  stars 0  flips  0  nodes  6  combo 13  coh 0.00  BH 5 hits 0 eaten  6 edge 0
+  L26 LOCKED TURBO      WON   32.1 s  16/16  score  4830  stars 3  flips  0  nodes  0  combo 11  coh 1.00  BH 5 hits 0 eaten  0 edge 0
+  L26 LOCKED TURBO      LOST   7.6 s   0/16  score     0  stars 0  flips  0  nodes  2  combo  0  coh 0.00  BH 5 hits 0 eaten  3 edge 0
+  L26 LOCKED TURBO      WON   35.4 s  16/16  score  3475  stars 2  flips  0  nodes  0  combo  6  coh 1.00  BH 5 hits 0 eaten  4 edge 0
+  L26 LOCKED TURBO      WON   43.3 s  16/16  score  4495  stars 3  flips  0  nodes  0  combo  8  coh 1.00  BH 5 hits 0 eaten  5 edge 0
+  ok   SINGULARITY level 26 LOCKED TURBO winnable by the bot: 3 / 5
+  L27 MIRROR MARATHON   WON   48.6 s  24/24  score 10733  stars 3  flips 12  nodes 15  combo 20  coh 0.15  BH 5 hits 3 eaten  1 edge 3
+  L27 MIRROR MARATHON   WON   41.7 s  24/24  score  8193  stars 3  flips 13  nodes 11  combo 17  coh 0.98  BH 5 hits 0 eaten  1 edge 0
+  L27 MIRROR MARATHON   WON   73.4 s  24/24  score  6137  stars 3  flips 25  nodes 63  combo 13  coh 0.73  BH 5 hits 1 eaten  5 edge 2
+  L27 MIRROR MARATHON   LOST 120.0 s   3/24  score   375  stars 0  flips 41  nodes 141  combo  2  coh 0.70  BH 5 hits 0 eaten  4 edge 0
+  L27 MIRROR MARATHON   LOST 120.0 s  19/24  score  5025  stars 0  flips  9  nodes 15  combo 11  coh 1.00  BH 5 hits 1 eaten  7 edge 0
+  ok   SINGULARITY level 27 MIRROR MARATHON winnable by the bot: 3 / 5
+  L28 FAST F            LOST  38.6 s  12/14  score  1975  stars 0  flips 12  nodes 27  combo  6  coh 0.00  BH 6 hits 0 eaten  4 edge 0
+  L28 FAST F            WON   44.7 s  14/14  score  2807  stars 2  flips 12  nodes 22  combo  3  coh 0.56  BH 6 hits 0 eaten  1 edge 0
+  L28 FAST F            LOST  50.3 s  13/14  score  2750  stars 0  flips 13  nodes 21  combo  5  coh 0.00  BH 6 hits 2 eaten  9 edge 0  SPAGHETTIFIED
+  L28 FAST F            LOST  19.5 s   3/14  score   375  stars 0  flips  6  nodes 23  combo  2  coh 0.00  BH 6 hits 0 eaten  4 edge 0
+  L28 FAST F            LOST  27.8 s  12/14  score  2325  stars 0  flips  6  nodes 21  combo  9  coh 0.00  BH 6 hits 1 eaten  2 edge 0
+  ok   SINGULARITY level 28 FAST F winnable by the bot: 1 / 5
+  L29 DEEP FREEZE       LOST   8.0 s   2/16  score   225  stars 0  flips  0  nodes  1  combo  1  coh 0.00  BH 5 hits 0 eaten  1 edge 0
+  L29 DEEP FREEZE       LOST  26.9 s   1/16  score   725  stars 0  flips  0  nodes 12  combo  1  coh 0.00  BH 5 hits 2 eaten  0 edge 0  SPAGHETTIFIED
+  L29 DEEP FREEZE       LOST  20.0 s   5/16  score   650  stars 0  flips  0  nodes  5  combo  3  coh 0.00  BH 5 hits 2 eaten  6 edge 0  SPAGHETTIFIED
+  L29 DEEP FREEZE       WON   29.2 s  16/16  score  6411  stars 3  flips  0  nodes  8  combo 16  coh 0.40  BH 5 hits 2 eaten  5 edge 1
+  L29 DEEP FREEZE       LOST  17.6 s   7/16  score   925  stars 0  flips  0  nodes  8  combo  3  coh 0.00  BH 5 hits 1 eaten  3 edge 0  SPAGHETTIFIED
+  ok   SINGULARITY level 29 DEEP FREEZE winnable by the bot: 1 / 5
+  L30 PAULI STORM 9g    LOST  33.8 s  19/24  score  3500  stars 0  flips  6  nodes 10  combo 10  coh 0.00  BH 6 hits 1 eaten  8 edge 0
+  L30 PAULI STORM 9g    WON   60.1 s  24/24  score  8647  stars 3  flips 16  nodes 38  combo 10  coh 0.54  BH 6 hits 2 eaten 14 edge 1
+  L30 PAULI STORM 9g    WON   48.2 s  24/24  score  6443  stars 3  flips  8  nodes  7  combo  8  coh 0.10  BH 6 hits 4 eaten 15 edge 1
+  L30 PAULI STORM 9g    WON   79.3 s  24/24  score 12735  stars 3  flips 25  nodes 45  combo 17  coh 1.00  BH 6 hits 0 eaten 20 edge 0
+  L30 PAULI STORM 9g    LOST  23.0 s   7/24  score  1225  stars 0  flips  3  nodes 23  combo  6  coh 0.00  BH 6 hits 1 eaten  4 edge 0
+  ok   SINGULARITY level 30 PAULI STORM 9g winnable by the bot: 3 / 5
+  SINGULARITY: bot won 110 of 150
+  ok   difficulty rises with the mode: bot wins 145 > 132 > 110 of 150
+  ok   deterministic replay: score 7207 = 7207
+
+137 checks, 0 failures

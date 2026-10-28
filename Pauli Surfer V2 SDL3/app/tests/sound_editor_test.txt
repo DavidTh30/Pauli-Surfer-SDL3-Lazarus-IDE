@@ -1,0 +1,42 @@
+05:00:09.032  PAULI SURFER 2 - SOUND EDITOR --ui-test
+05:00:09.800  ok    22 sound rows drawn (22)
+05:00:09.800  ok    panels recipe / wave / design
+05:00:09.800  ok    SAVE button inside the window
+05:00:09.847  png tests/ed_shots\01_sound_editor.png
+05:00:09.867  click row.flip
+05:00:09.917  ok    click on the row selects "flip"
+05:00:09.917  ok    flip = scifi:teleport (built-in recipe)
+05:00:09.917  click preset.1
+05:00:09.967  ok    preset button -> scifi:phaser (scifi:phaser)
+05:00:09.967  ok    flip marked modified (1 sound)
+05:00:09.967  click slider2
+05:00:10.016  ok    pitch slider centre = 1.0 x (log scale): 1.000
+05:00:10.016  click play
+05:00:10.167  ok    PLAY starts the rendered sound (24255 frames)
+05:00:10.167  click edit_layers
+05:00:10.217  ok    EDIT LAYERS makes a custom design
+05:00:10.217  click layer.2
+05:00:10.269  png tests/ed_shots\02_custom_design.png
+05:00:10.300  ok    layer tab 2
+05:00:10.300  click slider101
+05:00:10.350  ok    layer 2 frequency = log centre 89.4 Hz
+05:00:10.567  ok    custom design re-rendered
+05:00:10.567  click save
+05:00:10.975  status: saved F:\Claude\Lazarus\UI08\Pauli Surfer V2 SDL3\app\tests\ed_data\pauli_sounds.ini  (a running game reloads it)
+05:00:11.001  ok    SAVE writes F:\Claude\Lazarus\UI08\Pauli Surfer V2 SDL3\app\tests\ed_data\pauli_sounds.ini, nothing modified
+05:00:11.001  ok    file loads back: custom flip with layer 2 at the new frequency
+05:00:11.364  click back_to_preset
+05:00:11.383  ok    BACK TO PRESET drops the design
+05:00:11.384  click combo_run
+05:00:11.434  ok    COMBO RUN queues the pickups (4 left)
+05:00:11.434  click loop_ambient
+05:00:11.934  ok    AMBIENT loop plays
+05:00:11.934  ok    2 voices mixed
+05:00:11.934  click row.bh_loop
+05:00:11.983  ok    select bh_loop
+05:00:11.983  click stop
+05:00:12.041  png tests/ed_shots\03_loops.png
+05:00:12.066  ok    STOP silences everything
+05:00:12.300  ok    small window 1000 x 640: everything inside
+05:00:12.341  png tests/ed_shots\04_small_window.png
+05:00:12.406  done: 22 checks, 0 failure(s)

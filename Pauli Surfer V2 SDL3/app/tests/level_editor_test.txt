@@ -1,0 +1,44 @@
+05:02:09.041  PAULI SURFER 2 - LEVEL EDITOR --ui-test
+05:02:09.432  ok    world 1: 6 level rows (6)
+05:02:09.432  ok    panels level / preview / bot test
+05:02:09.432  ok    preview cloud sampled: 2p, 120000 points
+05:02:09.949  ok    the preview bot plays (0.8 s)
+05:02:09.949  click world2
+05:02:10.022  png tests/ed_shots\11_level_editor.png
+05:02:10.049  ok    world tab 2
+05:02:10.049  click lvl7
+05:02:10.182  ok    level 7 selected: 2p m -1 "MIRROR"
+05:02:10.182  click m+
+05:02:10.232  ok    m -1 -> 0 on 2p: refused (l - |m| odd: the orbital is empty in the plane z = 0)
+05:02:10.232  click n+
+05:02:10.281  png tests/ed_shots\12_not_playable.png
+05:02:10.299  click m-
+05:02:10.433  ok    n + 1 and m back: 3p m -1 playable
+05:02:10.433  ok    level 7 marked modified
+05:02:10.433  click bh+
+05:02:10.516  ok    black holes 1 -> 2, preview restarted with 2 holes
+05:02:10.516  click spin_lock
+05:02:10.566  ok    SPIN LOCKED -> rule "SPIN LOCKED UP  MIRRORED"
+05:02:10.566  click field.title
+05:02:10.616  ok    click on TITLE focuses the text field
+05:02:10.616  click panel.preview
+05:02:10.666  ok    click outside: the field lets go
+05:02:10.666  click test_bot
+05:02:11.443  status: bot test done: CLASSIC 3 / BLACK HOLE 3 / SINGULARITY 2 of 5 won
+05:02:11.599  ok    bot test finished: CLASSIC 3 / BH 3 / SING 2 of 5
+05:02:11.599  click save
+05:02:11.604  status: saved F:\Claude\Lazarus\UI08\Pauli Surfer V2 SDL3\app\tests\ed_data\pauli_levels.ini  (a running game reloads it)
+05:02:11.677  png tests/ed_shots\13_bot_test.png
+05:02:11.700  ok    SAVE writes F:\Claude\Lazarus\UI08\Pauli Surfer V2 SDL3\app\tests\ed_data\pauli_levels.ini
+05:02:11.701  ok    the file loads back: level 7 = 3p, 2 holes, spin locked; level 1 unchanged
+05:02:11.701  click reset_level
+05:02:11.701  status: level 7 back to the built-in level (not saved yet)
+05:02:11.833  ok    RESET = built-in level 7 again
+05:02:11.833  click mode.singularity
+05:02:11.949  ok    preview in SINGULARITY: 2 holes
+05:02:12.007  png tests/ed_shots\14_singularity_preview.png
+05:02:12.199  ok    small window 1000 x 640: everything inside
+05:02:12.203  ok    PLAY IN GAME starts PauliSurfer2.exe (level 7)
+05:02:12.249  png tests/ed_shots\15_small_window.png
+05:02:15.099  ok    the launched game ran and saved its screenshot (2.9 s)
+05:02:15.169  done: 21 checks, 0 failure(s)
